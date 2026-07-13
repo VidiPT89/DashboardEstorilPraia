@@ -53,13 +53,14 @@
   },
   "squad": {
     "title": "Squad",
-    "intro": "Current players of Grupo Desportivo Estoril Praia. Name, shirt number and position entered manually from the official site; age and nationality cross-checked against ZeroZero.pt. That source only lists age, not an exact date of birth, so the age shown may be off by up to a year — see the \"About the Data\" page.",
+    "intro": "Current players of Grupo Desportivo Estoril Praia. Name, shirt number and position entered manually from the official site; age, nationality and market value cross-checked against ZeroZero.pt. Age may be off by up to a year (the source only lists age, not an exact date of birth), and not every player has a market value available — see the \"About the Data\" page.",
     "table": {
       "player": "Player",
       "position": "Position",
       "age": "Age",
       "nationality": "Nationality",
-      "shirtNumber": "No."
+      "shirtNumber": "No.",
+      "marketValue": "Market Value"
     },
     "noData": "The squad isn't available yet. The football-data.org free tier doesn't include this data for this competition — see the \"About the Data\" page for details. This page is ready for whenever that data exists, whether via the API or manual entry."
   },
@@ -141,15 +142,15 @@
     "sourcesTitle": "Data Sources",
     "sources": {
       "standings": "Standings, results and fixtures — football-data.org (free tier), via REST API.",
-      "squad": "Squad — name, number and position entered manually from the official site (football-data.org doesn't provide the full squad for Liga Portugal); age and nationality cross-checked against ZeroZero.pt.",
+      "squad": "Squad — name, number and position entered manually from the official site (football-data.org doesn't provide the full squad for Liga Portugal); age, nationality and market value cross-checked against ZeroZero.pt.",
       "history": "Club history — manual dataset, built from public sources (Wikipedia, official site).",
       "news": "Club news — periodic manual entry, from the official Estoril Praia website.",
-      "marketValues": "Market values — occasional manual entry, sourced from Sofascore or FBref (never Transfermarkt, due to its terms of use)."
+      "marketValues": "Market values — occasional manual entry from ZeroZero.pt (Sofascore and FBref were considered first, but Sofascore loads values via JavaScript and FBref doesn't publish market values; never Transfermarkt, due to its terms of use). Only 14 of 23 players have a value available in the source."
     },
     "updateFrequencyTitle": "Update Frequency",
     "updateFrequency": "Standings, results and fixtures are synced by a scheduled task (Vercel Cron Job) that runs once a day and writes the results into the project's own database. The site never calls the external API directly on each visit, to respect the free tier's rate limits. The squad, club history and news are entered manually and updated occasionally.",
     "limitationsTitle": "Known Limitations",
-    "limitations": "The football-data.org free tier has request-per-minute limits, doesn't include the full squad for Liga Portugal (so the squad is entered manually), and may not include every match event (goals, cards, substitutions) for every competition. Player age is approximate (based only on the age listed by ZeroZero.pt, not an exact date of birth, so it may be off by up to a year). Some historical or financial data is only updated manually and occasionally.",
+    "limitations": "The football-data.org free tier has request-per-minute limits, doesn't include the full squad for Liga Portugal (so the squad is entered manually), and may not include every match event (goals, cards, substitutions) for every competition. Player age is approximate (based only on the age listed by ZeroZero.pt, not an exact date of birth, so it may be off by up to a year). Not every player has a market value available in the source. Some historical or financial data is only updated manually and occasionally.",
     "simulatedDataTitle": "Simulated Data",
     "simulatedData": "Any artificially generated advanced metric (e.g. fatigue, GPS, wearables) is clearly flagged with a \"Simulated data\" notice in the interface and is never presented as real."
   },

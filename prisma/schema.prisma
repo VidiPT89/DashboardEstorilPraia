@@ -172,7 +172,7 @@ model MarketValue {
   value    Int // valor em euros
   currency String   @default("EUR")
   asOfDate DateTime
-  source   String // "sofascore" | "fbref"
+  source   String // "sofascore" | "fbref" | "zerozero"
 
   player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
 

@@ -8,7 +8,7 @@ Estoril Praia Analytics Hub combines real data — synced from the football-data
 
 - 🏆 **Live standings** for Liga Portugal, with Estoril's row highlighted
 - 📅 **Recent results and upcoming fixtures**, with a live countdown to the next match
-- 👥 **Squad page** — 23 current players, shirt number and position, entered manually from the official club site (age and nationality aren't published there, so those columns are left blank rather than guessed)
+- 👥 **Squad page** — 23 current players: name, shirt number and position from the official club site, age/nationality/market value cross-checked against ZeroZero.pt (age is approximate; market value isn't available for every player — never guessed, left blank instead)
 - 🕰️ **Club history timeline** — milestones, promotions/relegations and titles since 1939, a manually curated dataset cross-checked against Wikipedia
 - 📰 **News page** — manually entered from the official club site, database-backed so new posts don't require a deploy
 - 📈 **Points evolution by matchday**, **goals scored vs conceded**, and **home vs away performance** charts (Recharts, club-branded, accessible color palette)
@@ -109,10 +109,10 @@ To add a news post, open Prisma Studio (`npm run db:studio`) and add a row to `N
 All data sources, update frequency and known limitations are documented in full on the **"About the Data"** page (`/sobre-dados` / `/about the data`). In short:
 
 - Standings, results and fixtures — [football-data.org](https://www.football-data.org/) (free tier), synced daily
-- Squad — manual entries in the database, sourced from the [official club site](https://estorilpraia.pt/plantel/equipa-principal) (football-data.org doesn't provide the full squad for Liga Portugal)
+- Squad — manual entries in the database: name/number/position from the [official club site](https://estorilpraia.pt/plantel/equipa-principal), age/nationality/market value cross-checked against [ZeroZero.pt](https://www.zerozero.pt/) (Sofascore's values are JS-rendered and FBref doesn't publish market values, so neither was usable in practice; Transfermarkt is never used, per its terms of use)
 - Club history — manual dataset in `src/data/club-history.ts`, cross-checked against Wikipedia
 - News — manual entries in the database, sourced from the official club site
-- Market values and financial snapshots — manual datasets from public sources (Sofascore, FBref — never Transfermarkt, per its terms of use), added as the project grows past its MVP
+- Financial snapshots — manual dataset from public sources, added as the project grows past its MVP
 - Any future simulated metric (fatigue, GPS, wearables) will always carry a visible "Simulated data" badge and is never presented as real
 
 ## 📝 Notes

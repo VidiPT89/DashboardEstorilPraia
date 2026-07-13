@@ -9,8 +9,16 @@ export async function getEstorilSquad() {
   const team = await getEstorilTeam();
   if (!team) return [];
 
-  return prisma.player.findMany({
+  const players = await prisma.player.findMany({
     where: { teamId: team.id },
     orderBy: [{ shirtNumber: "asc" }, { name: "asc" }],
+    include: {
+      marketValues: { orderBy: { asOfDate: "desc" }, take: 1 },
+    },
   });
+
+  return players.map((player) => ({
+    ...player,
+    marketValue: player.marketValues[0] ?? null,
+  }));
 }

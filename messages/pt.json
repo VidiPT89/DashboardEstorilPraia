@@ -53,13 +53,14 @@
   },
   "squad": {
     "title": "Plantel",
-    "intro": "Jogadores atuais do Grupo Desportivo Estoril Praia. Nome, número e posição inseridos manualmente a partir do site oficial; idade e nacionalidade cruzadas com o ZeroZero.pt. Como a fonte só indica a idade (não a data de nascimento exata), a idade apresentada pode ter um desvio de até um ano — ver a página \"Sobre os Dados\".",
+    "intro": "Jogadores atuais do Grupo Desportivo Estoril Praia. Nome, número e posição inseridos manualmente a partir do site oficial; idade, nacionalidade e valor de mercado cruzados com o ZeroZero.pt. A idade pode ter um desvio de até um ano (a fonte só indica a idade, não a data de nascimento exata), e nem todos os jogadores têm valor de mercado disponível — ver a página \"Sobre os Dados\".",
     "table": {
       "player": "Jogador",
       "position": "Posição",
       "age": "Idade",
       "nationality": "Nacionalidade",
-      "shirtNumber": "Nº"
+      "shirtNumber": "Nº",
+      "marketValue": "Valor de Mercado"
     },
     "noData": "O plantel ainda não está disponível. O plano gratuito da football-data.org não inclui esta informação para esta competição — ver a página \"Sobre os Dados\" para mais detalhes. Esta página fica pronta para quando os dados existirem, seja pela API ou por inserção manual."
   },
@@ -141,15 +142,15 @@
     "sourcesTitle": "Fontes de Dados",
     "sources": {
       "standings": "Classificação, resultados e calendário — football-data.org (plano gratuito), via API REST.",
-      "squad": "Plantel — nome, número e posição inseridos manualmente a partir do site oficial (a football-data.org não fornece o plantel completo para a Liga Portugal); idade e nacionalidade cruzadas com o ZeroZero.pt.",
+      "squad": "Plantel — nome, número e posição inseridos manualmente a partir do site oficial (a football-data.org não fornece o plantel completo para a Liga Portugal); idade, nacionalidade e valor de mercado cruzados com o ZeroZero.pt.",
       "history": "Histórico do clube — dataset manual, criado a partir de fontes públicas (Wikipédia, site oficial).",
       "news": "Notícias do clube — inserção manual periódica, a partir do site oficial do Estoril Praia.",
-      "marketValues": "Valores de mercado — carregamento manual pontual, com base em Sofascore ou FBref (nunca Transfermarkt, por questões de termos de uso)."
+      "marketValues": "Valores de mercado — carregamento manual pontual a partir do ZeroZero.pt (Sofascore e FBref foram consideradas primeiro, mas o Sofascore carrega os valores via JavaScript e o FBref não publica valores de mercado; nunca Transfermarkt, por questões de termos de uso). Só 14 dos 23 jogadores têm valor disponível na fonte."
     },
     "updateFrequencyTitle": "Frequência de Atualização",
     "updateFrequency": "Os dados de classificação, resultados e calendário são sincronizados por uma tarefa agendada (Vercel Cron Job) que corre uma vez por dia e grava os resultados na base de dados própria. O site nunca chama a API externa diretamente a cada visita, para respeitar os limites do plano gratuito. O plantel, o histórico e as notícias são inseridos manualmente e atualizados de forma pontual.",
     "limitationsTitle": "Limitações Conhecidas",
-    "limitations": "O plano gratuito da football-data.org tem limites de pedidos por minuto, não inclui o plantel completo para a Liga Portugal (por isso o plantel é inserido manualmente), e pode não incluir todos os eventos de jogo (golos, cartões, substituições) para todas as competições. A idade dos jogadores é aproximada (baseada apenas na idade indicada pelo ZeroZero.pt, sem data de nascimento exata, com desvio possível de até um ano). Alguns dados históricos ou financeiros só são atualizados manualmente e de forma pontual.",
+    "limitations": "O plano gratuito da football-data.org tem limites de pedidos por minuto, não inclui o plantel completo para a Liga Portugal (por isso o plantel é inserido manualmente), e pode não incluir todos os eventos de jogo (golos, cartões, substituições) para todas as competições. A idade dos jogadores é aproximada (baseada apenas na idade indicada pelo ZeroZero.pt, sem data de nascimento exata, com desvio possível de até um ano). Nem todos os jogadores têm valor de mercado disponível na fonte. Alguns dados históricos ou financeiros só são atualizados manualmente e de forma pontual.",
     "simulatedDataTitle": "Dados Simulados",
     "simulatedData": "Qualquer métrica avançada gerada artificialmente (ex: fadiga, GPS, wearables) é claramente assinalada com um aviso \"Dados simulados\" na interface e nunca é apresentada como dado real."
   },

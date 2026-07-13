@@ -8,6 +8,15 @@ type PageProps = {
   params: Promise<{ locale: string }>;
 };
 
+function formatMarketValue(value: number, locale: string) {
+  return new Intl.NumberFormat(locale === "pt" ? "pt-PT" : "en-GB", {
+    style: "currency",
+    currency: "EUR",
+    notation: "compact",
+    maximumFractionDigits: 1,
+  }).format(value);
+}
+
 export default async function SquadPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -16,22 +25,23 @@ export default async function SquadPage({ params }: PageProps) {
   const players = await getEstorilSquad().catch(() => []);
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
       <h1 className="text-2xl font-bold">{t("title")}</h1>
       <p className="mt-3 text-[var(--muted)]">{t("intro")}</p>
 
       {players.length === 0 ? (
         <div className="card mt-8 p-6 text-sm text-[var(--muted)]">{t("noData")}</div>
       ) : (
-        <div className="card mt-8 overflow-hidden">
-          <table className="w-full text-sm">
+        <div className="card mt-8 overflow-x-auto">
+          <table className="w-full min-w-[640px] text-sm">
             <thead>
               <tr className="text-left text-xs uppercase tracking-wide text-[var(--muted)]">
                 <th className="px-5 py-3 font-medium">{t("table.shirtNumber")}</th>
                 <th className="px-2 py-3 font-medium">{t("table.player")}</th>
                 <th className="px-2 py-3 font-medium">{t("table.position")}</th>
                 <th className="px-2 py-3 text-center font-medium">{t("table.age")}</th>
-                <th className="px-5 py-3 font-medium">{t("table.nationality")}</th>
+                <th className="px-2 py-3 font-medium">{t("table.nationality")}</th>
+                <th className="px-5 py-3 text-right font-medium">{t("table.marketValue")}</th>
               </tr>
             </thead>
             <tbody>
@@ -43,7 +53,10 @@ export default async function SquadPage({ params }: PageProps) {
                   <td className="px-2 py-2.5 text-center tabular-nums">
                     {player.dateOfBirth ? differenceInYears(new Date(), player.dateOfBirth) : "—"}
                   </td>
-                  <td className="px-5 py-2.5">{player.nationality ?? "—"}</td>
+                  <td className="px-2 py-2.5">{player.nationality ?? "—"}</td>
+                  <td className="px-5 py-2.5 text-right tabular-nums">
+                    {player.marketValue ? formatMarketValue(player.marketValue.value, locale) : "—"}
+                  </td>
                 </tr>
               ))}
             </tbody>
