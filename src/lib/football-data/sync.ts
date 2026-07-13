@@ -27,14 +27,14 @@ async function syncStandings() {
     update: {
       name: data.competition.name,
       code: data.competition.code,
-      area: data.competition.area.name,
+      area: data.area.name,
       emblemUrl: data.competition.emblem,
     },
     create: {
       externalId: data.competition.id,
       name: data.competition.name,
       code: data.competition.code,
-      area: data.competition.area.name,
+      area: data.area.name,
       emblemUrl: data.competition.emblem,
     },
   });

@@ -42,7 +42,6 @@ export interface FdCompetition {
   id: number;
   name: string;
   code: string;
-  area: FdArea;
   emblem: string | null;
 }
 
@@ -79,6 +78,7 @@ export interface FdStandingTableRow {
 }
 
 export interface FdStandingsResponse {
+  area: FdArea;
   competition: FdCompetition;
   season: { id: number; startDate: string; endDate: string; currentMatchday: number | null };
   standings: Array<{ type: string; table: FdStandingTableRow[] }>;
