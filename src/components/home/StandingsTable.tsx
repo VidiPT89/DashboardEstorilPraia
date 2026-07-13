@@ -7,15 +7,27 @@ type StandingsRows = Awaited<ReturnType<typeof getCurrentStandings>>["rows"];
 
 type StandingsTableProps = {
   rows: StandingsRows;
+  season: string | null;
 };
 
-export async function StandingsTable({ rows }: StandingsTableProps) {
+function formatSeasonLabel(season: string | null): string | null {
+  if (!season) return null;
+  const startYear = Number(season);
+  if (Number.isNaN(startYear)) return null;
+  return `${startYear}/${String(startYear + 1).slice(-2)}`;
+}
+
+export async function StandingsTable({ rows, season }: StandingsTableProps) {
   const t = await getTranslations("home");
+  const seasonLabel = formatSeasonLabel(season);
 
   return (
     <div className="card overflow-hidden">
       <div className="flex items-center justify-between border-b border-[var(--border)] px-5 py-4">
         <h2 className="text-base font-semibold">{t("standingsTitle")}</h2>
+        {seasonLabel ? (
+          <span className="stat-pill px-2.5 py-1 text-xs font-medium text-[var(--muted)]">{seasonLabel}</span>
+        ) : null}
       </div>
       <div className="overflow-x-auto">
         <table className="w-full min-w-[520px] text-sm">

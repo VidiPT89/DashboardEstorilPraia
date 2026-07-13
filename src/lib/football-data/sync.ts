@@ -40,8 +40,18 @@ async function syncStandings() {
   });
 
   const totalTable = data.standings.find((s) => s.type === "TOTAL")?.table ?? [];
-  const season = data.season.startDate.slice(0, 4);
-  const matchday = data.season.currentMatchday ?? 0;
+
+  // During the off-season, football-data.org pairs the upcoming season's
+  // `season` object (e.g. 2026/27, starting in August) with the table of the
+  // season that just finished — every team already has a full set of games
+  // played even though `currentMatchday` resets to 1. Detect that and label
+  // the row with the season that actually produced this table, not the one
+  // that hasn't kicked off yet.
+  const maxPlayed = Math.max(0, ...totalTable.map((row) => row.playedGames));
+  const apiSeasonStartYear = Number(data.season.startDate.slice(0, 4));
+  const isStaleCompletedSeason = (data.season.currentMatchday ?? 0) <= 1 && maxPlayed > 1;
+  const season = String(isStaleCompletedSeason ? apiSeasonStartYear - 1 : apiSeasonStartYear);
+  const matchday = isStaleCompletedSeason ? maxPlayed : (data.season.currentMatchday ?? 0);
 
   let rowsWritten = 0;
   for (const row of totalTable as FdStandingTableRow[]) {

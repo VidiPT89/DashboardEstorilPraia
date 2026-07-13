@@ -43,7 +43,7 @@ async function loadHomeData(): Promise<HomeData | null> {
         getHomeAwaySplit(),
         getPlayersWithSeasonStats(),
       ]);
-    const pointsEvolution = team ? await getPointsEvolution(team.id) : [];
+    const pointsEvolution = team && standings.season ? await getPointsEvolution(team.id, standings.season) : [];
 
     return { standings, recentResults, upcomingMatches, pointsEvolution, goalsPerMatchday, homeAwaySplit, topScorers };
   } catch (error) {
@@ -113,7 +113,7 @@ export default async function Home({ params }: PageProps) {
       ) : (
         <div className="grid gap-6 lg:grid-cols-3">
           <div style={stagger(1)} className="animate-in lg:col-span-2">
-            <StandingsTable rows={data.standings.rows} />
+            <StandingsTable rows={data.standings.rows} season={data.standings.season} />
           </div>
 
           <div className="flex flex-col gap-6">
