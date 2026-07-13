@@ -1,0 +1,215 @@
+// Prisma schema — Estoril Praia Analytics Hub
+// See README.md for data source documentation.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ---------------------------------------------------------------------------
+// Fase 1 — dados reais via API (football-data.org)
+// ---------------------------------------------------------------------------
+
+model Competition {
+  id         String   @id @default(cuid())
+  externalId Int      @unique
+  name       String
+  code       String
+  area       String
+  emblemUrl  String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  teams          TeamSeasonStat[]
+  matches        Match[]
+
+  @@map("competitions")
+}
+
+model Team {
+  id         String   @id @default(cuid())
+  externalId Int      @unique
+  name       String
+  shortName  String?
+  tla        String?
+  crestUrl   String?
+  founded    Int?
+  venue      String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  players        Player[]
+  homeMatches    Match[]          @relation("HomeTeam")
+  awayMatches    Match[]          @relation("AwayTeam")
+  seasonStats    TeamSeasonStat[]
+
+  @@map("teams")
+}
+
+model Player {
+  id          String    @id @default(cuid())
+  externalId  Int?      @unique
+  teamId      String
+  name        String
+  position    String?
+  dateOfBirth DateTime?
+  nationality String?
+  shirtNumber Int?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  team            Team              @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  matchStats      PlayerMatchStat[]
+  marketValues    MarketValue[]
+  simulatedMetrics SimulatedMetric[]
+
+  @@index([teamId])
+  @@map("players")
+}
+
+model Match {
+  id            String   @id @default(cuid())
+  externalId    Int      @unique
+  competitionId String
+  homeTeamId    String
+  awayTeamId    String
+  utcDate       DateTime
+  status        String
+  matchday      Int?
+  stage         String?
+  homeScore     Int?
+  awayScore     Int?
+  venue         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  competition      Competition       @relation(fields: [competitionId], references: [id])
+  homeTeam         Team              @relation("HomeTeam", fields: [homeTeamId], references: [id])
+  awayTeam         Team              @relation("AwayTeam", fields: [awayTeamId], references: [id])
+  playerMatchStats PlayerMatchStat[]
+  simulatedMetrics SimulatedMetric[]
+
+  @@index([competitionId])
+  @@index([homeTeamId])
+  @@index([awayTeamId])
+  @@index([utcDate])
+  @@map("matches")
+}
+
+model PlayerMatchStat {
+  id            String @id @default(cuid())
+  playerId      String
+  matchId       String
+  minutesPlayed Int?
+  goals         Int    @default(0)
+  assists       Int    @default(0)
+  yellowCards   Int    @default(0)
+  redCards      Int    @default(0)
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  match  Match  @relation(fields: [matchId], references: [id], onDelete: Cascade)
+
+  @@unique([playerId, matchId])
+  @@map("player_match_stats")
+}
+
+model TeamSeasonStat {
+  id            String @id @default(cuid())
+  teamId        String
+  competitionId String
+  season        String
+  matchday      Int
+  played        Int
+  won           Int
+  drawn         Int
+  lost          Int
+  goalsFor      Int
+  goalsAgainst  Int
+  points        Int
+  position      Int
+
+  team        Team        @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  competition Competition @relation(fields: [competitionId], references: [id], onDelete: Cascade)
+
+  @@unique([teamId, competitionId, season, matchday])
+  @@index([competitionId, season])
+  @@map("team_season_stats")
+}
+
+// ---------------------------------------------------------------------------
+// Fase 2 — dados reais, inseridos manualmente
+// ---------------------------------------------------------------------------
+
+model NewsPost {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  content     String
+  sourceUrl   String?
+  publishedAt DateTime
+  createdAt   DateTime @default(now())
+
+  @@map("news_posts")
+}
+
+model ClubHistoryEvent {
+  id          String  @id @default(cuid())
+  year        Int
+  title       String
+  description String
+  category    String // title | promotion | relegation | milestone
+
+  @@map("club_history")
+}
+
+model MarketValue {
+  id       String   @id @default(cuid())
+  playerId String
+  value    Int // valor em euros
+  currency String   @default("EUR")
+  asOfDate DateTime
+  source   String // "sofascore" | "fbref"
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  @@index([playerId])
+  @@map("market_values")
+}
+
+// ---------------------------------------------------------------------------
+// Fase 3 — avançado / simulado
+// ---------------------------------------------------------------------------
+
+model FinanceSnapshot {
+  id             String  @id @default(cuid())
+  season         String
+  revenue        Int?
+  expenses       Int?
+  netResult      Int?
+  isPublicSource Boolean @default(true)
+  sourceUrl      String?
+  notes          String?
+
+  @@map("finance_snapshots")
+}
+
+model SimulatedMetric {
+  id          String   @id @default(cuid())
+  type        String // fatigue | gps | wearable
+  playerId    String?
+  matchId     String?
+  value       Json
+  isSimulated Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  player Player? @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  match  Match?  @relation(fields: [matchId], references: [id], onDelete: Cascade)
+
+  @@index([playerId])
+  @@index([matchId])
+  @@map("simulated_metrics")
+}

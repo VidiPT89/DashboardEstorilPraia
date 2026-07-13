@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "Estoril Praia Analytics Hub",
+    "description": "Dashboard de análise de dados do Grupo Desportivo Estoril Praia."
+  },
+  "nav": {
+    "home": "Início",
+    "aboutData": "Sobre os Dados"
+  },
+  "header": {
+    "tagline": "Analytics Hub"
+  },
+  "home": {
+    "standingsTitle": "Classificação",
+    "standingsUpdatedNote": "Dados atualizados automaticamente a partir da football-data.org",
+    "table": {
+      "position": "#",
+      "team": "Equipa",
+      "played": "J",
+      "won": "V",
+      "drawn": "E",
+      "lost": "D",
+      "goalsFor": "GM",
+      "goalsAgainst": "GS",
+      "points": "Pts"
+    },
+    "recentResultsTitle": "Resultados Recentes",
+    "upcomingMatchesTitle": "Próximos Jogos",
+    "countdown": {
+      "days": "d",
+      "hours": "h",
+      "minutes": "m",
+      "seconds": "s",
+      "kickoff": "Início do jogo"
+    },
+    "charts": {
+      "pointsEvolutionTitle": "Evolução de Pontos por Jornada",
+      "pointsEvolutionAxis": "Jornada",
+      "goalsTitle": "Golos Marcados vs Sofridos",
+      "goalsScored": "Marcados",
+      "goalsConceded": "Sofridos",
+      "homeAwayTitle": "Casa vs Fora",
+      "homeAwayHome": "Casa",
+      "homeAwayAway": "Fora",
+      "won": "Vitórias",
+      "drawn": "Empates",
+      "lost": "Derrotas"
+    },
+    "noData": "Ainda não há dados sincronizados. Configure a `DATABASE_URL` e a `FOOTBALL_DATA_API_KEY` e corra a sincronização — ver a página \"Sobre os Dados\"."
+  },
+  "aboutData": {
+    "title": "Sobre os Dados",
+    "intro": "Este projeto foi construído para portefólio e combina dados reais, obtidos por API e inseridos manualmente, com secções experimentais claramente identificadas quando os dados são simulados.",
+    "sourcesTitle": "Fontes de Dados",
+    "sources": {
+      "standings": "Classificação, resultados e calendário — football-data.org (plano gratuito), via API REST.",
+      "squad": "Plantel e estatísticas básicas de jogadores — football-data.org.",
+      "history": "Histórico do clube — dataset manual, criado a partir de fontes públicas (Wikipédia, site oficial).",
+      "marketValues": "Valores de mercado — carregamento manual pontual, com base em Sofascore ou FBref (nunca Transfermarkt, por questões de termos de uso)."
+    },
+    "updateFrequencyTitle": "Frequência de Atualização",
+    "updateFrequency": "Os dados de classificação, resultados e plantel são sincronizados por uma tarefa agendada (Vercel Cron Job) que corre uma vez por dia e grava os resultados na base de dados própria. O site nunca chama a API externa diretamente a cada visita, para respeitar os limites do plano gratuito.",
+    "limitationsTitle": "Limitações Conhecidas",
+    "limitations": "O plano gratuito da football-data.org tem limites de pedidos por minuto e pode não incluir todos os eventos de jogo (golos, cartões, substituições) para todas as competições. Alguns dados históricos ou financeiros só são atualizados manualmente e de forma pontual.",
+    "simulatedDataTitle": "Dados Simulados",
+    "simulatedData": "Qualquer métrica avançada gerada artificialmente (ex: fadiga, GPS, wearables) é claramente assinalada com um aviso \"Dados simulados\" na interface e nunca é apresentada como dado real."
+  },
+  "footer": {
+    "developedBy": "Desenvolvido por",
+    "sourceCode": "Código-fonte"
+  }
+}

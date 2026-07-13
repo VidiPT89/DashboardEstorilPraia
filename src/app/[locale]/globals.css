@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f6fa;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --foreground: #0b1524;
+  --muted: #56637a;
+  --border: rgba(0, 51, 102, 0.12);
+  --club-blue: #003366;
+  --club-blue-strong: #00234a;
+  --club-yellow: #ffd700;
+  --club-yellow-strong: #e6c200;
+  --chart-line: #2a78d6;
+  --chart-scored: #eda100;
+  --chart-conceded: #2a78d6;
+  --chart-won: #1baf7a;
+  --chart-drawn: #eda100;
+  --chart-lost: #e34948;
+  --chart-grid: #e1e0d9;
+  --chart-ink-muted: #898781;
+}
+
+:root[data-theme="dark"] {
+  --background: #060a12;
+  --surface: #0e1626;
+  --surface-raised: #121d31;
+  --foreground: #eef2f8;
+  --muted: #97a3ba;
+  --border: rgba(255, 215, 0, 0.14);
+  --club-blue: #17436e;
+  --club-blue-strong: #0b2c50;
+  --club-yellow: #ffd700;
+  --club-yellow-strong: #ffde33;
+  --chart-line: #3987e5;
+  --chart-scored: #c98500;
+  --chart-conceded: #3987e5;
+  --chart-won: #199e70;
+  --chart-drawn: #c98500;
+  --chart-lost: #e66767;
+  --chart-grid: #2c2c2a;
+  --chart-ink-muted: #898781;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --background: #060a12;
+    --surface: #0e1626;
+    --surface-raised: #121d31;
+    --foreground: #eef2f8;
+    --muted: #97a3ba;
+    --border: rgba(255, 215, 0, 0.14);
+    --club-blue: #17436e;
+    --club-blue-strong: #0b2c50;
+    --club-yellow: #ffd700;
+    --club-yellow-strong: #ffde33;
+    --chart-line: #3987e5;
+    --chart-scored: #c98500;
+    --chart-conceded: #3987e5;
+    --chart-won: #199e70;
+    --chart-drawn: #c98500;
+    --chart-lost: #e66767;
+    --chart-grid: #2c2c2a;
+    --chart-ink-muted: #898781;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-club-blue: var(--club-blue);
+  --color-club-yellow: var(--club-yellow);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px rgba(0, 20, 45, 0.04), 0 8px 24px -16px rgba(0, 20, 45, 0.35);
+}
+
+.stat-pill {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}

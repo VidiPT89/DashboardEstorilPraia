@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "Estoril Praia Analytics Hub",
+    "description": "Analytics dashboard for Grupo Desportivo Estoril Praia."
+  },
+  "nav": {
+    "home": "Home",
+    "aboutData": "About the Data"
+  },
+  "header": {
+    "tagline": "Analytics Hub"
+  },
+  "home": {
+    "standingsTitle": "Standings",
+    "standingsUpdatedNote": "Data updated automatically from football-data.org",
+    "table": {
+      "position": "#",
+      "team": "Team",
+      "played": "P",
+      "won": "W",
+      "drawn": "D",
+      "lost": "L",
+      "goalsFor": "GF",
+      "goalsAgainst": "GA",
+      "points": "Pts"
+    },
+    "recentResultsTitle": "Recent Results",
+    "upcomingMatchesTitle": "Upcoming Matches",
+    "countdown": {
+      "days": "d",
+      "hours": "h",
+      "minutes": "m",
+      "seconds": "s",
+      "kickoff": "Kickoff"
+    },
+    "charts": {
+      "pointsEvolutionTitle": "Points Evolution by Matchday",
+      "pointsEvolutionAxis": "Matchday",
+      "goalsTitle": "Goals Scored vs Conceded",
+      "goalsScored": "Scored",
+      "goalsConceded": "Conceded",
+      "homeAwayTitle": "Home vs Away",
+      "homeAwayHome": "Home",
+      "homeAwayAway": "Away",
+      "won": "Wins",
+      "drawn": "Draws",
+      "lost": "Losses"
+    },
+    "noData": "No synced data yet. Set `DATABASE_URL` and `FOOTBALL_DATA_API_KEY` and run the sync — see the \"About the Data\" page."
+  },
+  "aboutData": {
+    "title": "About the Data",
+    "intro": "This project was built as a portfolio piece and combines real data — fetched via API and entered manually — with experimental sections that are clearly labelled whenever the data is simulated.",
+    "sourcesTitle": "Data Sources",
+    "sources": {
+      "standings": "Standings, results and fixtures — football-data.org (free tier), via REST API.",
+      "squad": "Squad and basic player stats — football-data.org.",
+      "history": "Club history — manual dataset, built from public sources (Wikipedia, official site).",
+      "marketValues": "Market values — occasional manual entry, sourced from Sofascore or FBref (never Transfermarkt, due to its terms of use)."
+    },
+    "updateFrequencyTitle": "Update Frequency",
+    "updateFrequency": "Standings, results and squad data are synced by a scheduled task (Vercel Cron Job) that runs once a day and writes the results into the project's own database. The site never calls the external API directly on each visit, to respect the free tier's rate limits.",
+    "limitationsTitle": "Known Limitations",
+    "limitations": "The football-data.org free tier has request-per-minute limits and may not include every match event (goals, cards, substitutions) for every competition. Some historical or financial data is only updated manually and occasionally.",
+    "simulatedDataTitle": "Simulated Data",
+    "simulatedData": "Any artificially generated advanced metric (e.g. fatigue, GPS, wearables) is clearly flagged with a \"Simulated data\" notice in the interface and is never presented as real."
+  },
+  "footer": {
+    "developedBy": "Developed by",
+    "sourceCode": "Source code"
+  }
+}
