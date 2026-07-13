@@ -6,6 +6,7 @@
   "nav": {
     "home": "Início",
     "squad": "Plantel",
+    "history": "História",
     "aboutData": "Sobre os Dados"
   },
   "header": {
@@ -60,6 +61,70 @@
       "shirtNumber": "Nº"
     },
     "noData": "O plantel ainda não está disponível. O plano gratuito da football-data.org não inclui esta informação para esta competição — ver a página \"Sobre os Dados\" para mais detalhes. Esta página fica pronta para quando os dados existirem, seja pela API ou por inserção manual."
+  },
+  "clubHistory": {
+    "title": "História",
+    "intro": "Marcos históricos do Grupo Desportivo Estoril Praia, desde a fundação em 1939. Dataset manual, cruzado com a Wikipédia em português e em inglês — ver a página \"Sobre os Dados\".",
+    "categories": {
+      "title": "Título",
+      "promotion": "Subida",
+      "relegation": "Descida",
+      "milestone": "Marco"
+    },
+    "events": {
+      "founding": {
+        "title": "Fundação",
+        "description": "Fundado a 17 de maio de 1939 como Grupo Desportivo Estoril Plage, a partir da Sociedade Estoril-Plage. As cores amarelo e azul representam o sol e o mar da região — a origem da alcunha \"Canarinhos\"."
+      },
+      "cupFinal1944": {
+        "title": "Finalista da Taça de Portugal",
+        "description": "Chegou à final da Taça de Portugal, perdida por 8–0 frente ao Benfica."
+      },
+      "debut1945": {
+        "title": "Estreia na 1ª Divisão",
+        "description": "Estreia no escalão principal, terminando a época em 7º lugar."
+      },
+      "relegation1953": {
+        "title": "Descida da 1ª Divisão",
+        "description": "Descida do escalão principal, dando início a mais de duas décadas nas divisões regionais."
+      },
+      "return1976": {
+        "title": "Regresso à 1ª Divisão",
+        "description": "Regresso ao escalão principal depois de mais de 20 anos nos escalões inferiores."
+      },
+      "title2004": {
+        "title": "Campeão da Liga de Honra",
+        "description": "Campeão da Liga de Honra (2ª divisão), garantindo a subida à Primeira Liga."
+      },
+      "relegation2005": {
+        "title": "Descida à 2ª divisão",
+        "description": "Descida após uma única época de regresso à Primeira Liga."
+      },
+      "title2012": {
+        "title": "Novo título na Liga de Honra",
+        "description": "Campeão da Liga de Honra, com Marco Silva eleito Treinador do Ano da competição, e subida à Primeira Liga."
+      },
+      "european2013": {
+        "title": "Qualificação europeia",
+        "description": "5º lugar na Primeira Liga, garantindo qualificação para competições europeias."
+      },
+      "bestFinish2014": {
+        "title": "Melhor classificação de sempre",
+        "description": "Melhor classificação de sempre do clube na Primeira Liga — 4º lugar — e estreia numa competição europeia (Liga Europa)."
+      },
+      "relegation2018": {
+        "title": "Descida à 2ª divisão",
+        "description": "Descida ao segundo escalão."
+      },
+      "title2021": {
+        "title": "Campeão da Liga Portugal 2",
+        "description": "Campeão da Liga Portugal 2, garantindo o regresso à Primeira Liga."
+      },
+      "cupRunnerUp2024": {
+        "title": "Finalista da Taça da Liga",
+        "description": "Finalista da Taça da Liga."
+      }
+    }
   },
   "aboutData": {
     "title": "Sobre os Dados",

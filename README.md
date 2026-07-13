@@ -9,6 +9,7 @@ Estoril Praia Analytics Hub combines real data — synced from the football-data
 - 🏆 **Live standings** for Liga Portugal, with Estoril's row highlighted
 - 📅 **Recent results and upcoming fixtures**, with a live countdown to the next match
 - 👥 **Squad page** — players, position, age and nationality, with a clear notice when the free API tier doesn't provide this data yet
+- 🕰️ **Club history timeline** — milestones, promotions/relegations and titles since 1939, a manually curated dataset cross-checked against Wikipedia
 - 📈 **Points evolution by matchday**, **goals scored vs conceded**, and **home vs away performance** charts (Recharts, club-branded, accessible color palette)
 - 📄 **"About the Data" page** — documents every data source, update frequency and known limitations
 - 🇵🇹 🇬🇧 Full bilingual interface (European Portuguese / English) via `next-intl`, with a one-click language switcher

@@ -6,6 +6,7 @@
   "nav": {
     "home": "Home",
     "squad": "Squad",
+    "history": "History",
     "aboutData": "About the Data"
   },
   "header": {
@@ -60,6 +61,70 @@
       "shirtNumber": "No."
     },
     "noData": "The squad isn't available yet. The football-data.org free tier doesn't include this data for this competition — see the \"About the Data\" page for details. This page is ready for whenever that data exists, whether via the API or manual entry."
+  },
+  "clubHistory": {
+    "title": "History",
+    "intro": "Historical milestones of Grupo Desportivo Estoril Praia, since its founding in 1939. Manual dataset, cross-checked against the Portuguese and English Wikipedia — see the \"About the Data\" page.",
+    "categories": {
+      "title": "Title",
+      "promotion": "Promotion",
+      "relegation": "Relegation",
+      "milestone": "Milestone"
+    },
+    "events": {
+      "founding": {
+        "title": "Founding",
+        "description": "Founded on 17 May 1939 as Grupo Desportivo Estoril Plage, out of the Sociedade Estoril-Plage. The club's yellow and blue colours represent the region's sun and sea — the origin of the \"Canarinhos\" (\"Canaries\") nickname."
+      },
+      "cupFinal1944": {
+        "title": "Taça de Portugal finalists",
+        "description": "Reached the Taça de Portugal final, lost 8–0 to Benfica."
+      },
+      "debut1945": {
+        "title": "Top-flight debut",
+        "description": "Debut season in the top division, finishing 7th."
+      },
+      "relegation1953": {
+        "title": "Relegated from the top flight",
+        "description": "Relegated from the top division, beginning more than two decades in the regional divisions."
+      },
+      "return1976": {
+        "title": "Return to the top flight",
+        "description": "Returned to the top division after more than 20 years in the lower tiers."
+      },
+      "title2004": {
+        "title": "Liga de Honra champions",
+        "description": "Won the Liga de Honra (second division) title, earning promotion to the Primeira Liga."
+      },
+      "relegation2005": {
+        "title": "Relegated again",
+        "description": "Relegated to the second division after a single season back in the Primeira Liga."
+      },
+      "title2012": {
+        "title": "Liga de Honra champions again",
+        "description": "Won the Liga de Honra again, with Marco Silva named the competition's Coach of the Year, earning promotion to the Primeira Liga."
+      },
+      "european2013": {
+        "title": "European qualification",
+        "description": "Finished 5th in the Primeira Liga, securing qualification for European competition."
+      },
+      "bestFinish2014": {
+        "title": "Best-ever finish",
+        "description": "The club's best-ever Primeira Liga finish — 4th place — and its first appearance in a European competition (UEFA Europa League)."
+      },
+      "relegation2018": {
+        "title": "Relegated to the second division",
+        "description": "Relegated to the second division."
+      },
+      "title2021": {
+        "title": "Liga Portugal 2 champions",
+        "description": "Won the Liga Portugal 2 title, earning a return to the Primeira Liga."
+      },
+      "cupRunnerUp2024": {
+        "title": "Taça da Liga runners-up",
+        "description": "Runners-up in the Taça da Liga."
+      }
+    }
   },
   "aboutData": {
     "title": "About the Data",
