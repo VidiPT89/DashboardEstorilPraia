@@ -53,7 +53,7 @@
   },
   "squad": {
     "title": "Plantel",
-    "intro": "Jogadores atuais do Grupo Desportivo Estoril Praia.",
+    "intro": "Jogadores atuais do Grupo Desportivo Estoril Praia. Inserido manualmente a partir do site oficial, que não disponibiliza idade nem nacionalidade — por isso essas colunas ficam em branco em vez de um valor inventado.",
     "table": {
       "player": "Jogador",
       "position": "Posição",
@@ -141,15 +141,15 @@
     "sourcesTitle": "Fontes de Dados",
     "sources": {
       "standings": "Classificação, resultados e calendário — football-data.org (plano gratuito), via API REST.",
-      "squad": "Plantel e estatísticas básicas de jogadores — football-data.org.",
+      "squad": "Plantel — inserção manual a partir do site oficial (nome, número e posição; a football-data.org não fornece o plantel completo para a Liga Portugal, e o site oficial não indica idade nem nacionalidade).",
       "history": "Histórico do clube — dataset manual, criado a partir de fontes públicas (Wikipédia, site oficial).",
       "news": "Notícias do clube — inserção manual periódica, a partir do site oficial do Estoril Praia.",
       "marketValues": "Valores de mercado — carregamento manual pontual, com base em Sofascore ou FBref (nunca Transfermarkt, por questões de termos de uso)."
     },
     "updateFrequencyTitle": "Frequência de Atualização",
-    "updateFrequency": "Os dados de classificação, resultados e plantel são sincronizados por uma tarefa agendada (Vercel Cron Job) que corre uma vez por dia e grava os resultados na base de dados própria. O site nunca chama a API externa diretamente a cada visita, para respeitar os limites do plano gratuito.",
+    "updateFrequency": "Os dados de classificação, resultados e calendário são sincronizados por uma tarefa agendada (Vercel Cron Job) que corre uma vez por dia e grava os resultados na base de dados própria. O site nunca chama a API externa diretamente a cada visita, para respeitar os limites do plano gratuito. O plantel, o histórico e as notícias são inseridos manualmente e atualizados de forma pontual.",
     "limitationsTitle": "Limitações Conhecidas",
-    "limitations": "O plano gratuito da football-data.org tem limites de pedidos por minuto, não inclui o plantel completo (jogadores) para a Liga Portugal, e pode não incluir todos os eventos de jogo (golos, cartões, substituições) para todas as competições. Alguns dados históricos ou financeiros só são atualizados manualmente e de forma pontual.",
+    "limitations": "O plano gratuito da football-data.org tem limites de pedidos por minuto, não inclui o plantel completo para a Liga Portugal (por isso o plantel é inserido manualmente a partir do site oficial, sem idade nem nacionalidade), e pode não incluir todos os eventos de jogo (golos, cartões, substituições) para todas as competições. Alguns dados históricos ou financeiros só são atualizados manualmente e de forma pontual.",
     "simulatedDataTitle": "Dados Simulados",
     "simulatedData": "Qualquer métrica avançada gerada artificialmente (ex: fadiga, GPS, wearables) é claramente assinalada com um aviso \"Dados simulados\" na interface e nunca é apresentada como dado real."
   },

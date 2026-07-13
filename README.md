@@ -8,7 +8,7 @@ Estoril Praia Analytics Hub combines real data — synced from the football-data
 
 - 🏆 **Live standings** for Liga Portugal, with Estoril's row highlighted
 - 📅 **Recent results and upcoming fixtures**, with a live countdown to the next match
-- 👥 **Squad page** — players, position, age and nationality, with a clear notice when the free API tier doesn't provide this data yet
+- 👥 **Squad page** — 23 current players, shirt number and position, entered manually from the official club site (age and nationality aren't published there, so those columns are left blank rather than guessed)
 - 🕰️ **Club history timeline** — milestones, promotions/relegations and titles since 1939, a manually curated dataset cross-checked against Wikipedia
 - 📰 **News page** — manually entered from the official club site, database-backed so new posts don't require a deploy
 - 📈 **Points evolution by matchday**, **goals scored vs conceded**, and **home vs away performance** charts (Recharts, club-branded, accessible color palette)
@@ -108,10 +108,11 @@ To add a news post, open Prisma Studio (`npm run db:studio`) and add a row to `N
 
 All data sources, update frequency and known limitations are documented in full on the **"About the Data"** page (`/sobre-dados` / `/about the data`). In short:
 
-- Standings, results, fixtures and squad — [football-data.org](https://www.football-data.org/) (free tier), synced daily
+- Standings, results and fixtures — [football-data.org](https://www.football-data.org/) (free tier), synced daily
+- Squad — manual entries in the database, sourced from the [official club site](https://estorilpraia.pt/plantel/equipa-principal) (football-data.org doesn't provide the full squad for Liga Portugal)
 - Club history — manual dataset in `src/data/club-history.ts`, cross-checked against Wikipedia
 - News — manual entries in the database, sourced from the official club site
-- Market values and financial snapshots — manual datasets from public sources, added as the project grows past its MVP
+- Market values and financial snapshots — manual datasets from public sources (Sofascore, FBref — never Transfermarkt, per its terms of use), added as the project grows past its MVP
 - Any future simulated metric (fatigue, GPS, wearables) will always carry a visible "Simulated data" badge and is never presented as real
 
 ## 📝 Notes
