@@ -11,7 +11,8 @@ Estoril Praia Analytics Hub combines real data — synced from the football-data
 - 👥 **Squad page** — 23 current players: name, shirt number and position from the official club site, age/nationality/market value cross-checked against ZeroZero.pt (age is approximate; market value isn't available for every player — never guessed, left blank instead)
 - 🕰️ **Club history timeline** — milestones, promotions/relegations and titles since 1939, a manually curated dataset cross-checked against Wikipedia
 - 📰 **News page** — manually entered from the official club site, database-backed so new posts don't require a deploy
-- 📈 **Points evolution by matchday**, **goals scored vs conceded**, and **home vs away performance** charts (Recharts, club-branded, accessible color palette)
+- 📈 **Points evolution by matchday**, **goals scored vs conceded**, **home vs away performance** and **top scorers/assists** charts (Recharts, club-branded, accessible color palette)
+- ⚔️ **Player comparator** — radar chart comparing goals, assists and combined contributions between any two players with season stats on record
 - 📄 **"About the Data" page** — documents every data source, update frequency and known limitations
 - 🇵🇹 🇬🇧 Full bilingual interface (European Portuguese / English) via `next-intl`, with a one-click language switcher
 - 🌗 Light and dark themes, respecting the visitor's system preference with a manual override
@@ -110,6 +111,7 @@ All data sources, update frequency and known limitations are documented in full 
 
 - Standings, results and fixtures — [football-data.org](https://www.football-data.org/) (free tier), synced daily
 - Squad — manual entries in the database: name/number/position from the [official club site](https://estorilpraia.pt/plantel/equipa-principal), age/nationality/market value cross-checked against [ZeroZero.pt](https://www.zerozero.pt/) (Sofascore's values are JS-rendered and FBref doesn't publish market values, so neither was usable in practice; Transfermarkt is never used, per its terms of use)
+- Player season stats (goals/assists, for the top scorers chart and comparator) — manual dataset in `src/data/player-season-stats.ts` for the completed 2025/26 season; FBref (the spec's preferred source) blocks automated fetches, so this was cross-checked across ESPN, Soccerway and FootyStats instead. Only 8 of 23 players have a confirmed stat — the rest are left out rather than assumed to be zero
 - Club history — manual dataset in `src/data/club-history.ts`, cross-checked against Wikipedia
 - News — manual entries in the database, sourced from the official club site
 - Financial snapshots — manual dataset from public sources, added as the project grows past its MVP

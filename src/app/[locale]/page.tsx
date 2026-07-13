@@ -7,12 +7,14 @@ import {
   getUpcomingMatches,
 } from "@/lib/data/matches";
 import { getEstorilTeam } from "@/lib/data/team";
+import { getPlayersWithSeasonStats } from "@/lib/data/player-stats";
 import { StandingsTable } from "@/components/home/StandingsTable";
 import { MatchCard } from "@/components/home/MatchCard";
 import { Countdown } from "@/components/home/Countdown";
 import { PointsEvolutionChart } from "@/components/home/PointsEvolutionChart";
 import { GoalsChart } from "@/components/home/GoalsChart";
 import { HomeAwayChart } from "@/components/home/HomeAwayChart";
+import { TopScorersChart } from "@/components/home/TopScorersChart";
 
 export const dynamic = "force-dynamic";
 
@@ -23,22 +25,24 @@ type HomeData = {
   pointsEvolution: Awaited<ReturnType<typeof getPointsEvolution>>;
   goalsPerMatchday: Awaited<ReturnType<typeof getGoalsPerMatchday>>;
   homeAwaySplit: Awaited<ReturnType<typeof getHomeAwaySplit>>;
+  topScorers: Awaited<ReturnType<typeof getPlayersWithSeasonStats>>;
 };
 
 async function loadHomeData(): Promise<HomeData | null> {
   try {
     const team = await getEstorilTeam();
-    const [standings, recentResults, upcomingMatches, goalsPerMatchday, homeAwaySplit] =
+    const [standings, recentResults, upcomingMatches, goalsPerMatchday, homeAwaySplit, topScorers] =
       await Promise.all([
         getCurrentStandings(),
         getRecentResults(),
         getUpcomingMatches(),
         getGoalsPerMatchday(),
         getHomeAwaySplit(),
+        getPlayersWithSeasonStats(),
       ]);
     const pointsEvolution = team ? await getPointsEvolution(team.id) : [];
 
-    return { standings, recentResults, upcomingMatches, pointsEvolution, goalsPerMatchday, homeAwaySplit };
+    return { standings, recentResults, upcomingMatches, pointsEvolution, goalsPerMatchday, homeAwaySplit, topScorers };
   } catch (error) {
     console.error("[home] failed to load dashboard data", error);
     return null;
@@ -108,6 +112,7 @@ export default async function Home({ params }: PageProps) {
             <PointsEvolutionChart data={data.pointsEvolution} />
             <GoalsChart data={data.goalsPerMatchday} />
             <HomeAwayChart data={data.homeAwaySplit} />
+            {data.topScorers.length > 0 ? <TopScorersChart players={data.topScorers} /> : null}
           </div>
         </div>
       )}

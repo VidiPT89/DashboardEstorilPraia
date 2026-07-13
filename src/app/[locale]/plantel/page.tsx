@@ -1,6 +1,8 @@
 import { differenceInYears } from "date-fns";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getEstorilSquad } from "@/lib/data/team";
+import { getPlayersWithSeasonStats } from "@/lib/data/player-stats";
+import { PlayerComparator } from "@/components/squad/PlayerComparator";
 
 export const dynamic = "force-dynamic";
 
@@ -23,6 +25,7 @@ export default async function SquadPage({ params }: PageProps) {
 
   const t = await getTranslations("squad");
   const players = await getEstorilSquad().catch(() => []);
+  const playersWithStats = await getPlayersWithSeasonStats().catch(() => []);
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
@@ -63,6 +66,12 @@ export default async function SquadPage({ params }: PageProps) {
           </table>
         </div>
       )}
+
+      {playersWithStats.length >= 2 ? (
+        <div className="mt-6">
+          <PlayerComparator players={playersWithStats} />
+        </div>
+      ) : null}
     </div>
   );
 }
