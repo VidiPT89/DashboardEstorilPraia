@@ -2,11 +2,11 @@ import { prisma } from "@/lib/prisma";
 import { footballDataClient, type FdMatch, type FdStandingTableRow } from "@/lib/football-data/client";
 import { COMPETITION_CODE, ESTORIL_TEAM_ID } from "@/lib/estoril";
 
-async function upsertTeam(id: number, name: string) {
+async function upsertTeam(id: number, name: string, crestUrl?: string | null) {
   return prisma.team.upsert({
     where: { externalId: id },
-    update: { name },
-    create: { externalId: id, name },
+    update: { name, ...(crestUrl ? { crestUrl } : {}) },
+    create: { externalId: id, name, crestUrl: crestUrl ?? null },
   });
 }
 
@@ -45,7 +45,7 @@ async function syncStandings() {
 
   let rowsWritten = 0;
   for (const row of totalTable as FdStandingTableRow[]) {
-    const team = await upsertTeam(row.team.id, row.team.name);
+    const team = await upsertTeam(row.team.id, row.team.name, row.team.crest);
 
     await prisma.teamSeasonStat.upsert({
       where: {
@@ -145,8 +145,8 @@ async function syncMatches() {
   let matchesWritten = 0;
   for (const match of data.matches as FdMatch[]) {
     const [homeTeam, awayTeam, competition] = await Promise.all([
-      upsertTeam(match.homeTeam.id, match.homeTeam.name),
-      upsertTeam(match.awayTeam.id, match.awayTeam.name),
+      upsertTeam(match.homeTeam.id, match.homeTeam.name, match.homeTeam.crest),
+      upsertTeam(match.awayTeam.id, match.awayTeam.name, match.awayTeam.crest),
       findOrStubCompetition(match.competition.id),
     ]);
 

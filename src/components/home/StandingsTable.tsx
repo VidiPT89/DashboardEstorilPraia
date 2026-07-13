@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { ESTORIL_TEAM_ID } from "@/lib/estoril";
 import type { getCurrentStandings } from "@/lib/data/standings";
+import { TeamCrest } from "@/components/ui/TeamCrest";
 
 type StandingsRows = Awaited<ReturnType<typeof getCurrentStandings>>["rows"];
 
@@ -39,14 +40,17 @@ export async function StandingsTable({ rows }: StandingsTableProps) {
                   key={row.id}
                   className={
                     isEstoril
-                      ? "bg-[var(--club-yellow)]/15 font-semibold"
-                      : "border-t border-[var(--border)]"
+                      ? "bg-[var(--club-yellow)]/15 font-semibold transition-colors hover:bg-[var(--club-yellow)]/25"
+                      : "border-t border-[var(--border)] transition-colors hover:bg-[var(--surface-raised)]"
                   }
                 >
                   <td className="px-4 py-2.5">{row.position}</td>
                   <td className="px-4 py-2.5">
-                    <span className={isEstoril ? "text-[var(--club-blue)] dark:text-[var(--club-yellow)]" : ""}>
-                      {row.team.name}
+                    <span className="flex items-center gap-2.5">
+                      <TeamCrest src={row.team.crestUrl} alt={row.team.name} size={20} className="shrink-0" />
+                      <span className={isEstoril ? "text-[var(--club-blue)] dark:text-[var(--club-yellow)]" : ""}>
+                        {row.team.name}
+                      </span>
                     </span>
                   </td>
                   <td className="px-2 py-2.5 text-center">{row.played}</td>

@@ -48,13 +48,16 @@ export function ClubHistoryTimeline({ entries, categoryLabels, allLabel, filterL
       </div>
 
       <ol className="mt-8 space-y-8 border-l-2 border-[var(--border)] pl-8">
-        {filteredEntries.map((entry) => (
+        {filteredEntries.map((entry, index) => (
           <li key={entry.id} className="relative">
             <span
               className={`absolute -left-[2.35rem] top-1 h-4 w-4 rounded-full ring-4 ring-[var(--background)] ${CATEGORY_DOT_CLASS[entry.category]}`}
               aria-hidden="true"
             />
-            <div className="card p-5">
+            <div
+              style={{ "--stagger": Math.min(index, 6) } as React.CSSProperties}
+              className="card card-interactive animate-in p-5"
+            >
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <span className="text-sm font-semibold tabular-nums text-[var(--muted)]">{entry.year}</span>
                 <span className="rounded-full bg-[var(--surface-raised)] px-2.5 py-0.5 text-xs font-medium text-[var(--muted)]">

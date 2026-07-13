@@ -35,7 +35,7 @@ export default async function SquadPage({ params }: PageProps) {
       {players.length === 0 ? (
         <div className="card mt-8 p-6 text-sm text-[var(--muted)]">{t("noData")}</div>
       ) : (
-        <div className="card mt-8 overflow-x-auto">
+        <div className="card animate-in mt-8 overflow-x-auto">
           <table className="w-full min-w-[640px] text-sm">
             <thead>
               <tr className="text-left text-xs uppercase tracking-wide text-[var(--muted)]">
@@ -49,7 +49,7 @@ export default async function SquadPage({ params }: PageProps) {
             </thead>
             <tbody>
               {players.map((player) => (
-                <tr key={player.id} className="border-t border-[var(--border)]">
+                <tr key={player.id} className="border-t border-[var(--border)] transition-colors hover:bg-[var(--surface-raised)]">
                   <td className="px-5 py-2.5 tabular-nums">{player.shirtNumber ?? "—"}</td>
                   <td className="px-2 py-2.5 font-medium">{player.name}</td>
                   <td className="px-2 py-2.5">{player.position ?? "—"}</td>

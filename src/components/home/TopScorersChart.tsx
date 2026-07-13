@@ -26,7 +26,7 @@ export function TopScorersChart({ players }: TopScorersChartProps) {
     .map((player) => ({ name: player.name.split(" ").slice(-1)[0], goals: player.goals, assists: player.assists }));
 
   return (
-    <div className="card p-5">
+    <div className="card card-interactive p-5">
       <h2 className="mb-4 text-base font-semibold">{t("topScorersTitle")}</h2>
       <ResponsiveContainer width="100%" height={280}>
         <BarChart data={data} margin={{ top: 8, right: 16, left: -16, bottom: 0 }} barGap={2}>

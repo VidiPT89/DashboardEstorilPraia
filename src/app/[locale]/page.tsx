@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getCurrentStandings, getPointsEvolution } from "@/lib/data/standings";
 import {
@@ -15,6 +16,7 @@ import { PointsEvolutionChart } from "@/components/home/PointsEvolutionChart";
 import { GoalsChart } from "@/components/home/GoalsChart";
 import { HomeAwayChart } from "@/components/home/HomeAwayChart";
 import { TopScorersChart } from "@/components/home/TopScorersChart";
+import { TeamCrest } from "@/components/ui/TeamCrest";
 
 export const dynamic = "force-dynamic";
 
@@ -53,6 +55,10 @@ type PageProps = {
   params: Promise<{ locale: string }>;
 };
 
+function stagger(index: number): CSSProperties {
+  return { "--stagger": index } as CSSProperties;
+}
+
 export default async function Home({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -65,14 +71,39 @@ export default async function Home({ params }: PageProps) {
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
       {nextMatch ? (
-        <section className="card mb-8 flex flex-wrap items-center justify-between gap-4 bg-[var(--club-blue)] px-6 py-5 text-white">
-          <div>
-            <p className="text-xs uppercase tracking-wide text-white/60">{t("upcomingMatchesTitle")}</p>
-            <p className="mt-1 text-lg font-semibold">
-              {nextMatch.homeTeam.name} – {nextMatch.awayTeam.name}
-            </p>
+        <section
+          style={stagger(0)}
+          className="animate-in card relative mb-8 overflow-hidden bg-[var(--club-blue)] px-6 py-6 text-white"
+        >
+          <div
+            className="pointer-events-none absolute inset-0 opacity-40"
+            style={{
+              background:
+                "radial-gradient(circle at 15% 20%, rgba(255,215,0,0.18), transparent 45%), radial-gradient(circle at 85% 80%, rgba(255,255,255,0.08), transparent 40%)",
+            }}
+          />
+          <div className="relative flex flex-wrap items-center justify-between gap-5">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center -space-x-3">
+                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 ring-2 ring-white/40">
+                  <TeamCrest src={nextMatch.homeTeam.crestUrl} alt={nextMatch.homeTeam.name} size={38} />
+                </span>
+                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 ring-2 ring-white/40">
+                  <TeamCrest src={nextMatch.awayTeam.crestUrl} alt={nextMatch.awayTeam.name} size={38} />
+                </span>
+              </div>
+              <div>
+                <p className="flex items-center gap-1.5 text-xs uppercase tracking-wide text-white/60">
+                  <span className="animate-pulse-dot h-1.5 w-1.5 rounded-full bg-[var(--club-yellow)]" />
+                  {t("upcomingMatchesTitle")}
+                </p>
+                <p className="mt-1 text-lg font-semibold sm:text-xl">
+                  {nextMatch.homeTeam.name} – {nextMatch.awayTeam.name}
+                </p>
+              </div>
+            </div>
+            <Countdown targetDate={nextMatch.utcDate.toISOString()} />
           </div>
-          <Countdown targetDate={nextMatch.utcDate.toISOString()} />
         </section>
       ) : null}
 
@@ -80,12 +111,12 @@ export default async function Home({ params }: PageProps) {
         <div className="card p-6 text-sm text-[var(--muted)]">{t("noData")}</div>
       ) : (
         <div className="grid gap-6 lg:grid-cols-3">
-          <div className="lg:col-span-2">
+          <div style={stagger(1)} className="animate-in lg:col-span-2">
             <StandingsTable rows={data.standings.rows} />
           </div>
 
           <div className="flex flex-col gap-6">
-            <div className="card overflow-hidden">
+            <div style={stagger(2)} className="animate-in card overflow-hidden">
               <h2 className="border-b border-[var(--border)] px-5 py-4 text-base font-semibold">
                 {t("recentResultsTitle")}
               </h2>
@@ -96,7 +127,7 @@ export default async function Home({ params }: PageProps) {
               </ul>
             </div>
 
-            <div className="card overflow-hidden">
+            <div style={stagger(3)} className="animate-in card overflow-hidden">
               <h2 className="border-b border-[var(--border)] px-5 py-4 text-base font-semibold">
                 {t("upcomingMatchesTitle")}
               </h2>
@@ -109,10 +140,20 @@ export default async function Home({ params }: PageProps) {
           </div>
 
           <div className="lg:col-span-3 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            <PointsEvolutionChart data={data.pointsEvolution} />
-            <GoalsChart data={data.goalsPerMatchday} />
-            <HomeAwayChart data={data.homeAwaySplit} />
-            {data.topScorers.length > 0 ? <TopScorersChart players={data.topScorers} /> : null}
+            <div style={stagger(4)} className="animate-in">
+              <PointsEvolutionChart data={data.pointsEvolution} />
+            </div>
+            <div style={stagger(5)} className="animate-in">
+              <GoalsChart data={data.goalsPerMatchday} />
+            </div>
+            <div style={stagger(6)} className="animate-in">
+              <HomeAwayChart data={data.homeAwaySplit} />
+            </div>
+            {data.topScorers.length > 0 ? (
+              <div style={stagger(7)} className="animate-in">
+                <TopScorersChart players={data.topScorers} />
+              </div>
+            ) : null}
           </div>
         </div>
       )}

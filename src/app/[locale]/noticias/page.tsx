@@ -31,8 +31,12 @@ export default async function NewsPage({ params }: PageProps) {
         <div className="card mt-8 p-6 text-sm text-[var(--muted)]">{t("noData")}</div>
       ) : (
         <div className="mt-8 space-y-4">
-          {posts.map((post) => (
-            <article key={post.id} className="card p-6">
+          {posts.map((post, index) => (
+            <article
+              key={post.id}
+              style={{ "--stagger": index } as React.CSSProperties}
+              className="card card-interactive animate-in p-6"
+            >
               <p className="text-xs uppercase tracking-wide text-[var(--muted)]">
                 {formatDate(post.publishedAt, locale)}
               </p>

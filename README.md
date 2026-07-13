@@ -6,7 +6,8 @@ Estoril Praia Analytics Hub combines real data — synced from the football-data
 
 ## 📦 What's Inside
 
-- 🏆 **Live standings** for Liga Portugal, with Estoril's row highlighted
+- 🏆 **Live standings** for Liga Portugal, with real club crests and Estoril's row highlighted
+- 🎬 Subtle entrance animations, hover-lift cards and a pulsing live indicator throughout (respects `prefers-reduced-motion`)
 - 📅 **Recent results and upcoming fixtures**, with a live countdown to the next match
 - 👥 **Squad page** — 23 current players: name, shirt number and position from the official club site, age/nationality/market value cross-checked against ZeroZero.pt (age is approximate; market value isn't available for every player — never guessed, left blank instead)
 - 🕰️ **Club history timeline** — milestones, promotions/relegations and titles since 1939, a manually curated dataset cross-checked against Wikipedia

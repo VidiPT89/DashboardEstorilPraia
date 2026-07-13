@@ -91,11 +91,85 @@ body {
     border: 1px solid var(--border);
     border-radius: 1rem;
     box-shadow: 0 1px 2px rgba(0, 20, 45, 0.04), 0 8px 24px -16px rgba(0, 20, 45, 0.35);
+    transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1), border-color 220ms;
+  }
+
+  .card-interactive:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 2px 4px rgba(0, 20, 45, 0.06), 0 16px 32px -16px rgba(0, 20, 45, 0.45);
+    border-color: var(--club-yellow);
   }
 
   .stat-pill {
     background: var(--surface-raised);
     border: 1px solid var(--border);
     border-radius: 999px;
+  }
+}
+
+/* Header texture: faint diagonal stripes, brand-tinted */
+.header-texture {
+  background-image: repeating-linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.035) 0px,
+    rgba(255, 255, 255, 0.035) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+}
+
+/* Entrance animation, staggered via inline --stagger custom property */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fade-in-up 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--stagger, 0) * 70ms);
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+@keyframes crest-in {
+  from {
+    opacity: 0;
+    transform: scale(0.7) rotate(-6deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.animate-crest {
+  animation: crest-in 600ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .animate-in,
+  .animate-pulse-dot,
+  .animate-crest {
+    animation: none !important;
+    transition: none !important;
   }
 }

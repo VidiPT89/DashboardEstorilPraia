@@ -67,7 +67,7 @@ export interface FdPlayer {
 
 export interface FdStandingTableRow {
   position: number;
-  team: { id: number; name: string };
+  team: { id: number; name: string; crest: string | null };
   playedGames: number;
   won: number;
   draw: number;
@@ -91,8 +91,8 @@ export interface FdMatch {
   matchday: number | null;
   stage: string | null;
   competition: { id: number };
-  homeTeam: { id: number; name: string };
-  awayTeam: { id: number; name: string };
+  homeTeam: { id: number; name: string; crest: string | null };
+  awayTeam: { id: number; name: string; crest: string | null };
   score: {
     fullTime: { home: number | null; away: number | null };
   };

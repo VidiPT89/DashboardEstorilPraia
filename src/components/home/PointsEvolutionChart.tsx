@@ -19,7 +19,7 @@ export function PointsEvolutionChart({ data }: PointsEvolutionChartProps) {
   const t = useTranslations("home.charts");
 
   return (
-    <div className="card p-5">
+    <div className="card card-interactive p-5">
       <h2 className="mb-4 text-base font-semibold">{t("pointsEvolutionTitle")}</h2>
       <ResponsiveContainer width="100%" height={260}>
         <LineChart data={data} margin={{ top: 8, right: 16, left: -16, bottom: 0 }}>
