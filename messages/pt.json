@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Estoril Praia Analytics Hub",
-    "description": "Dashboard de análise de dados do Grupo Desportivo Estoril Praia."
+    "description": "Dashboard de análise de dados sobre a Estoril Praia SAD, com o histórico do Grupo Desportivo Estoril Praia."
   },
   "nav": {
     "home": "Início",
@@ -56,7 +56,7 @@
   },
   "squad": {
     "title": "Plantel",
-    "intro": "Jogadores atuais do Grupo Desportivo Estoril Praia. Nome, número e posição inseridos manualmente a partir do site oficial; idade, nacionalidade e valor de mercado cruzados com o ZeroZero.pt. A idade pode ter um desvio de até um ano (a fonte só indica a idade, não a data de nascimento exata), e nem todos os jogadores têm valor de mercado disponível — ver a página \"Sobre os Dados\".",
+    "intro": "Jogadores atuais da Estoril Praia SAD, equipa que compete na Primeira Liga. Nome, número e posição inseridos manualmente a partir do site oficial; idade, nacionalidade e valor de mercado cruzados com o ZeroZero.pt. A idade pode ter um desvio de até um ano (a fonte só indica a idade, não a data de nascimento exata), e nem todos os jogadores têm valor de mercado disponível — ver a página \"Sobre os Dados\".",
     "table": {
       "player": "Jogador",
       "position": "Posição",
@@ -142,13 +142,15 @@
   },
   "news": {
     "title": "Notícias",
-    "intro": "Últimas notícias do Grupo Desportivo Estoril Praia, inseridas manualmente a partir do site oficial.",
+    "intro": "Últimas notícias da Estoril Praia SAD, inseridas manualmente a partir do site oficial.",
     "source": "Fonte",
     "noData": "Ainda não há notícias inseridas."
   },
   "aboutData": {
     "title": "Sobre os Dados",
     "intro": "Este projeto foi construído para portefólio e combina dados reais, obtidos por API e inseridos manualmente, com secções experimentais claramente identificadas quando os dados são simulados.",
+    "entityTitle": "Estoril Praia SAD vs. Grupo Desportivo Estoril Praia",
+    "entityNote": "São entidades diferentes. A Estoril Praia SAD gere a equipa principal (Primeira Liga) e a equipa Sub-23 — é a ela que se referem a classificação, os jogos, o plantel, as notícias e as estatísticas neste site. O Grupo Desportivo Estoril Praia é o clube-mãe, responsável pelas camadas jovens e outras modalidades — é referido apenas na página \"História\", sobre a fundação do clube em 1939. A API football-data.org devolve \"GD Estoril Praia\" como nome da equipa por ser o nome popular do clube; este site corrige a apresentação para \"Estoril Praia SAD\" nos contextos em que essa é a entidade correta, sem alterar os dados sincronizados.",
     "sourcesTitle": "Fontes de Dados",
     "sources": {
       "standings": "Classificação, resultados e calendário — football-data.org (plano gratuito), via API REST.",

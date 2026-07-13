@@ -1,4 +1,4 @@
-import { ESTORIL_TEAM_ID } from "@/lib/estoril";
+import { ESTORIL_TEAM_ID, getTeamDisplayName } from "@/lib/estoril";
 import type { getRecentResults } from "@/lib/data/matches";
 
 type MatchWithTeams = Awaited<ReturnType<typeof getRecentResults>>[number];
@@ -25,9 +25,9 @@ export function MatchCard({ match, locale }: MatchCardProps) {
     <li className="flex items-center justify-between gap-3 border-t border-[var(--border)] px-5 py-3 transition-colors first:border-t-0 hover:bg-[var(--surface-raised)]">
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm">
-          <span className={isEstorilHome ? "font-semibold" : ""}>{match.homeTeam.name}</span>
+          <span className={isEstorilHome ? "font-semibold" : ""}>{getTeamDisplayName(match.homeTeam)}</span>
           {" – "}
-          <span className={!isEstorilHome ? "font-semibold" : ""}>{match.awayTeam.name}</span>
+          <span className={!isEstorilHome ? "font-semibold" : ""}>{getTeamDisplayName(match.awayTeam)}</span>
         </p>
         <p className="text-xs text-[var(--muted)]">{formatDate(match.utcDate, locale)}</p>
       </div>

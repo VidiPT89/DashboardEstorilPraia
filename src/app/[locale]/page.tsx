@@ -8,6 +8,7 @@ import {
   getUpcomingMatches,
 } from "@/lib/data/matches";
 import { getEstorilTeam } from "@/lib/data/team";
+import { getTeamDisplayName } from "@/lib/estoril";
 import { getPlayersWithSeasonStats } from "@/lib/data/player-stats";
 import { StandingsTable } from "@/components/home/StandingsTable";
 import { MatchCard } from "@/components/home/MatchCard";
@@ -98,7 +99,7 @@ export default async function Home({ params }: PageProps) {
                   {t("upcomingMatchesTitle")}
                 </p>
                 <p className="mt-1 text-lg font-semibold sm:text-xl">
-                  {nextMatch.homeTeam.name} – {nextMatch.awayTeam.name}
+                  {getTeamDisplayName(nextMatch.homeTeam)} – {getTeamDisplayName(nextMatch.awayTeam)}
                 </p>
               </div>
             </div>

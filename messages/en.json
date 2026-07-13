@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Estoril Praia Analytics Hub",
-    "description": "Analytics dashboard for Grupo Desportivo Estoril Praia."
+    "description": "Analytics dashboard for Estoril Praia SAD, with the history of Grupo Desportivo Estoril Praia."
   },
   "nav": {
     "home": "Home",
@@ -56,7 +56,7 @@
   },
   "squad": {
     "title": "Squad",
-    "intro": "Current players of Grupo Desportivo Estoril Praia. Name, shirt number and position entered manually from the official site; age, nationality and market value cross-checked against ZeroZero.pt. Age may be off by up to a year (the source only lists age, not an exact date of birth), and not every player has a market value available — see the \"About the Data\" page.",
+    "intro": "Current players of Estoril Praia SAD, the club that competes in the Primeira Liga. Name, shirt number and position entered manually from the official site; age, nationality and market value cross-checked against ZeroZero.pt. Age may be off by up to a year (the source only lists age, not an exact date of birth), and not every player has a market value available — see the \"About the Data\" page.",
     "table": {
       "player": "Player",
       "position": "Position",
@@ -142,13 +142,15 @@
   },
   "news": {
     "title": "News",
-    "intro": "Latest news from Grupo Desportivo Estoril Praia, entered manually from the official site.",
+    "intro": "Latest news from Estoril Praia SAD, entered manually from the official site.",
     "source": "Source",
     "noData": "No news entered yet."
   },
   "aboutData": {
     "title": "About the Data",
     "intro": "This project was built as a portfolio piece and combines real data — fetched via API and entered manually — with experimental sections that are clearly labelled whenever the data is simulated.",
+    "entityTitle": "Estoril Praia SAD vs. Grupo Desportivo Estoril Praia",
+    "entityNote": "These are different entities. Estoril Praia SAD runs the first team (Primeira Liga) and the Sub-23 side — it's what the standings, fixtures, squad, news and stats on this site refer to. Grupo Desportivo Estoril Praia is the parent club, responsible for the youth academy and other sports sections — it's only referenced on the \"History\" page, about the club's 1939 founding. football-data.org returns \"GD Estoril Praia\" as the team name since that's the club's popular name; this site corrects the display to \"Estoril Praia SAD\" in the contexts where that's the accurate entity, without altering the synced data itself.",
     "sourcesTitle": "Data Sources",
     "sources": {
       "standings": "Standings, results and fixtures — football-data.org (free tier), via REST API.",

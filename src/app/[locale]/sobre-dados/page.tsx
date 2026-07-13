@@ -29,11 +29,19 @@ export default async function AboutDataPage({ params }: PageProps) {
       <h1 className="text-2xl font-bold">{t("title")}</h1>
       <p className="mt-3 text-[var(--muted)]">{t("intro")}</p>
 
+      <section
+        style={{ "--stagger": 0 } as React.CSSProperties}
+        className="card animate-in mt-8 border-l-4 border-l-[var(--club-blue)] p-6"
+      >
+        <h2 className="text-lg font-semibold">{t("entityTitle")}</h2>
+        <p className="mt-3 text-sm text-[var(--muted)]">{t("entityNote")}</p>
+      </section>
+
       {sections.map((section, index) => (
         <section
           key={section.title}
-          style={{ "--stagger": index } as React.CSSProperties}
-          className="card animate-in mt-8 p-6"
+          style={{ "--stagger": index + 1 } as React.CSSProperties}
+          className="card animate-in mt-6 p-6"
         >
           <h2 className="text-lg font-semibold">{section.title}</h2>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-[var(--muted)]">
@@ -44,18 +52,18 @@ export default async function AboutDataPage({ params }: PageProps) {
         </section>
       ))}
 
-      <section style={{ "--stagger": 1 } as React.CSSProperties} className="card animate-in mt-6 p-6">
+      <section style={{ "--stagger": 2 } as React.CSSProperties} className="card animate-in mt-6 p-6">
         <h2 className="text-lg font-semibold">{t("updateFrequencyTitle")}</h2>
         <p className="mt-3 text-sm text-[var(--muted)]">{t("updateFrequency")}</p>
       </section>
 
-      <section style={{ "--stagger": 2 } as React.CSSProperties} className="card animate-in mt-6 p-6">
+      <section style={{ "--stagger": 3 } as React.CSSProperties} className="card animate-in mt-6 p-6">
         <h2 className="text-lg font-semibold">{t("limitationsTitle")}</h2>
         <p className="mt-3 text-sm text-[var(--muted)]">{t("limitations")}</p>
       </section>
 
       <section
-        style={{ "--stagger": 3 } as React.CSSProperties}
+        style={{ "--stagger": 4 } as React.CSSProperties}
         className="card animate-in mt-6 border-l-4 border-l-[var(--club-yellow)] p-6"
       >
         <h2 className="text-lg font-semibold">{t("simulatedDataTitle")}</h2>

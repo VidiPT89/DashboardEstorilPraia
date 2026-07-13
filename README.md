@@ -1,6 +1,6 @@
 # ⚽ Estoril Praia Analytics Hub
 
-> A full-stack analytics dashboard for Grupo Desportivo Estoril Praia — real standings, results and squad data synced from a football API, rendered with club-branded charts. Built for portfolio.
+> A full-stack analytics dashboard for Estoril Praia SAD — real standings, results and squad data synced from a football API, rendered with club-branded charts. Built for portfolio.
 
 Estoril Praia Analytics Hub combines real data — synced from the football-data.org API and cached in its own database — with a clear "About the Data" page documenting every source, so nothing is ever presented as real when it isn't. Standings, results, upcoming fixtures and season charts are all rendered in Estoril Praia's own yellow and navy, with full English/European-Portuguese bilingual support and light/dark themes.
 
@@ -105,6 +105,12 @@ curl http://localhost:3000/api/cron/sync
 In production, this same endpoint is called automatically once a day by the Vercel Cron Job defined in `vercel.json`.
 
 To add a news post, open Prisma Studio (`npm run db:studio`) and add a row to `NewsPost` — no code change or deploy needed.
+
+## 🏛️ Estoril Praia SAD vs. Grupo Desportivo Estoril Praia
+
+These are different entities. **Estoril Praia SAD** runs the first team (Primeira Liga) and the Sub-23 side — it's what the standings, fixtures, squad, news and stats in this dashboard are about. **Grupo Desportivo Estoril Praia** is the parent club (youth academy, other sports sections) — it only comes up on the History page, about the club's 1939 founding.
+
+football-data.org returns `"GD Estoril Praia"` as the team name, since that's the club's popular name — the raw synced data keeps that value untouched (see [`src/lib/football-data/sync.ts`](src/lib/football-data/sync.ts)). A display-only override in [`src/lib/estoril.ts`](src/lib/estoril.ts) (`getTeamDisplayName`) renders it as "Estoril Praia SAD" wherever the professional team is shown, without touching the database.
 
 ## 📊 Data Sources
 
