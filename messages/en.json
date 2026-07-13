@@ -7,6 +7,7 @@
     "home": "Home",
     "squad": "Squad",
     "history": "History",
+    "news": "News",
     "aboutData": "About the Data"
   },
   "header": {
@@ -126,6 +127,12 @@
       }
     }
   },
+  "news": {
+    "title": "News",
+    "intro": "Latest news from Grupo Desportivo Estoril Praia, entered manually from the official site.",
+    "source": "Source",
+    "noData": "No news entered yet."
+  },
   "aboutData": {
     "title": "About the Data",
     "intro": "This project was built as a portfolio piece and combines real data — fetched via API and entered manually — with experimental sections that are clearly labelled whenever the data is simulated.",
@@ -134,6 +141,7 @@
       "standings": "Standings, results and fixtures — football-data.org (free tier), via REST API.",
       "squad": "Squad and basic player stats — football-data.org.",
       "history": "Club history — manual dataset, built from public sources (Wikipedia, official site).",
+      "news": "Club news — periodic manual entry, from the official Estoril Praia website.",
       "marketValues": "Market values — occasional manual entry, sourced from Sofascore or FBref (never Transfermarkt, due to its terms of use)."
     },
     "updateFrequencyTitle": "Update Frequency",

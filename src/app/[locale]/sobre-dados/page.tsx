@@ -11,7 +11,16 @@ export default async function AboutDataPage({ params }: PageProps) {
   const t = await getTranslations("aboutData");
 
   const sections = [
-    { title: t("sourcesTitle"), items: [t("sources.standings"), t("sources.squad"), t("sources.history"), t("sources.marketValues")] },
+    {
+      title: t("sourcesTitle"),
+      items: [
+        t("sources.standings"),
+        t("sources.squad"),
+        t("sources.history"),
+        t("sources.news"),
+        t("sources.marketValues"),
+      ],
+    },
   ];
 
   return (

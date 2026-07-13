@@ -10,6 +10,7 @@ Estoril Praia Analytics Hub combines real data — synced from the football-data
 - 📅 **Recent results and upcoming fixtures**, with a live countdown to the next match
 - 👥 **Squad page** — players, position, age and nationality, with a clear notice when the free API tier doesn't provide this data yet
 - 🕰️ **Club history timeline** — milestones, promotions/relegations and titles since 1939, a manually curated dataset cross-checked against Wikipedia
+- 📰 **News page** — manually entered from the official club site, database-backed so new posts don't require a deploy
 - 📈 **Points evolution by matchday**, **goals scored vs conceded**, and **home vs away performance** charts (Recharts, club-branded, accessible color palette)
 - 📄 **"About the Data" page** — documents every data source, update frequency and known limitations
 - 🇵🇹 🇬🇧 Full bilingual interface (European Portuguese / English) via `next-intl`, with a one-click language switcher
@@ -101,12 +102,16 @@ curl http://localhost:3000/api/cron/sync
 
 In production, this same endpoint is called automatically once a day by the Vercel Cron Job defined in `vercel.json`.
 
+To add a news post, open Prisma Studio (`npm run db:studio`) and add a row to `NewsPost` — no code change or deploy needed.
+
 ## 📊 Data Sources
 
 All data sources, update frequency and known limitations are documented in full on the **"About the Data"** page (`/sobre-dados` / `/about the data`). In short:
 
 - Standings, results, fixtures and squad — [football-data.org](https://www.football-data.org/) (free tier), synced daily
-- Club history, market values and financial snapshots — manual datasets from public sources, added as the project grows past its MVP
+- Club history — manual dataset in `src/data/club-history.ts`, cross-checked against Wikipedia
+- News — manual entries in the database, sourced from the official club site
+- Market values and financial snapshots — manual datasets from public sources, added as the project grows past its MVP
 - Any future simulated metric (fatigue, GPS, wearables) will always carry a visible "Simulated data" badge and is never presented as real
 
 ## 📝 Notes

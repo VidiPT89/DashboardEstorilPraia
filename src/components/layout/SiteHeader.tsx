@@ -32,6 +32,9 @@ export async function SiteHeader() {
           <Link href="/historia" className="transition-colors hover:text-[var(--club-yellow)]">
             {t("nav.history")}
           </Link>
+          <Link href="/noticias" className="transition-colors hover:text-[var(--club-yellow)]">
+            {t("nav.news")}
+          </Link>
           <Link href="/sobre-dados" className="transition-colors hover:text-[var(--club-yellow)]">
             {t("nav.aboutData")}
           </Link>
