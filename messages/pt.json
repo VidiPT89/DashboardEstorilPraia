@@ -88,31 +88,87 @@
     "events": {
       "founding": {
         "title": "Fundação",
-        "description": "Fundado a 17 de maio de 1939 como Grupo Desportivo Estoril Plage, a partir da Sociedade Estoril-Plage. As cores amarelo e azul representam o sol e o mar da região — a origem da alcunha \"Canarinhos\"."
+        "description": "Fundado a 17 de maio de 1939 como Grupo Desportivo Estoril Plage, por Fausto Cardoso de Figueiredo, a partir da Sociedade Estoril Plage. As cores amarelo e azul representam o sol e o mar da região — a origem da alcunha \"Canarinhos\"."
+      },
+      "firstSport1940": {
+        "title": "Primeira modalidade",
+        "description": "A natação em águas abertas, na Praia do Tamariz, foi a primeira modalidade do clube. A secção de futebol foi criada nesse mesmo ano."
+      },
+      "inauguralParade1940": {
+        "title": "Desfile desportivo inaugural",
+        "description": "Primeiro desfile desportivo no Campo de Jogos, com a presença do Presidente da República, Óscar Carmona, e do Ministro da Educação, Mário de Figueiredo."
+      },
+      "headquarters1941": {
+        "title": "Nova sede social",
+        "description": "Inauguração da nova sede social no Palácio Castanheira, no segundo aniversário do clube, com a presença do Presidente Óscar Carmona."
       },
       "cupFinal1944": {
         "title": "Finalista da Taça de Portugal",
-        "description": "Chegou à final da Taça de Portugal, perdida por 8–0 frente ao Benfica."
+        "description": "Chegou à final da Taça de Portugal, perdida por 8–0 frente ao Benfica, na mesma época em que garantiu a subida ao escalão principal."
       },
       "debut1945": {
         "title": "Estreia na 1ª Divisão",
         "description": "Estreia no escalão principal, terminando a época em 7º lugar."
       },
+      "bestEarlyFinish1948": {
+        "title": "Melhor classificação da década",
+        "description": "4º lugar na 1ª Divisão, a melhor classificação do clube até então."
+      },
+      "recordWin1950": {
+        "title": "Maior vitória de sempre",
+        "description": "Goleada histórica por 10–0 ao Lusitano Sport Clube."
+      },
       "relegation1953": {
         "title": "Descida da 1ª Divisão",
         "description": "Descida do escalão principal, dando início a mais de duas décadas nas divisões regionais."
       },
+      "stadiumRenamed1972": {
+        "title": "Estádio António Coimbra da Mota",
+        "description": "O estádio passou a ter o nome de \"Estádio António Coimbra da Mota\", a 13 de dezembro, em homenagem ao antigo vice-presidente."
+      },
       "return1976": {
         "title": "Regresso à 1ª Divisão",
-        "description": "Regresso ao escalão principal depois de mais de 20 anos nos escalões inferiores."
+        "description": "Regresso ao escalão principal depois de mais de 20 anos nos escalões inferiores, com cinco épocas consecutivas que contaram com jogadores como António Simões e Fernando Santos."
+      },
+      "relegation1980": {
+        "title": "Nova descida",
+        "description": "Descida à 2ª divisão após o ciclo iniciado em 1975/76."
+      },
+      "promotion1981": {
+        "title": "Subida imediata",
+        "description": "Subida de volta à 1ª Divisão, disputando três épocas consecutivas até 1983/84."
+      },
+      "relegation1984": {
+        "title": "Descida à 2ª divisão",
+        "description": "Descida após três épocas no escalão principal."
+      },
+      "promotion1991": {
+        "title": "Regresso à 1ª Divisão",
+        "description": "Subida à 1ª Divisão como vice-campeão da Segunda Divisão de Honra, disputando três épocas consecutivas até 1993/94."
+      },
+      "relegation1994": {
+        "title": "Descida à 2ª divisão",
+        "description": "Descida após o ciclo iniciado em 1990/91."
+      },
+      "title2003": {
+        "title": "Campeão da Segunda Divisão B",
+        "description": "Campeão da Segunda Divisão B sob o comando de Ulisses Morais, a primeira de duas subidas consecutivas."
       },
       "title2004": {
         "title": "Campeão da Liga de Honra",
-        "description": "Campeão da Liga de Honra (2ª divisão), garantindo a subida à Primeira Liga."
+        "description": "Campeão da Liga de Honra (2ª divisão), garantindo a subida à Primeira Liga — a segunda subida consecutiva, também sob Ulisses Morais."
       },
       "relegation2005": {
         "title": "Descida à 2ª divisão",
         "description": "Descida após uma única época de regresso à Primeira Liga."
+      },
+      "financialCrisis2006": {
+        "title": "Crise financeira",
+        "description": "Crise financeira que obrigou a um resgate pelo Grupo Lagos Sports, de João Lagos."
+      },
+      "trafficSports2010": {
+        "title": "Nova gestão",
+        "description": "Estabilização financeira e desportiva sob a gestão da Traffic Sports Europe."
       },
       "title2012": {
         "title": "Novo título na Liga de Honra",
@@ -126,6 +182,14 @@
         "title": "Melhor classificação de sempre",
         "description": "Melhor classificação de sempre do clube na Primeira Liga — 4º lugar — e estreia numa competição europeia (Liga Europa)."
       },
+      "anniversary2014": {
+        "title": "75º aniversário",
+        "description": "Celebração do 75º aniversário do clube, com a criação do hino oficial \"És Estoril\", pelo grupo musical local Ténis Bar."
+      },
+      "newHeadquarters2017": {
+        "title": "Nova sede sustentável",
+        "description": "Inauguração de uma nova sede social sustentável, a 11 de janeiro, com espaço de museu dedicado à história do clube."
+      },
       "relegation2018": {
         "title": "Descida à 2ª divisão",
         "description": "Descida ao segundo escalão."
@@ -134,9 +198,13 @@
         "title": "Campeão da Liga Portugal 2",
         "description": "Campeão da Liga Portugal 2, garantindo o regresso à Primeira Liga."
       },
+      "sub23Success": {
+        "title": "Sucesso da equipa Sub-23",
+        "description": "A equipa Sub-23 conquistou três títulos da Liga Revelação em cinco épocas, e uma Taça Revelação."
+      },
       "cupRunnerUp2024": {
         "title": "Finalista da Taça da Liga",
-        "description": "Finalista da Taça da Liga."
+        "description": "Finalista da Taça da Liga, perdida nas grandes penalidades."
       }
     }
   },
