@@ -26,6 +26,9 @@ export async function SiteHeader() {
           <Link href="/" className="transition-colors hover:text-[var(--club-yellow)]">
             {t("nav.home")}
           </Link>
+          <Link href="/plantel" className="transition-colors hover:text-[var(--club-yellow)]">
+            {t("nav.squad")}
+          </Link>
           <Link href="/sobre-dados" className="transition-colors hover:text-[var(--club-yellow)]">
             {t("nav.aboutData")}
           </Link>

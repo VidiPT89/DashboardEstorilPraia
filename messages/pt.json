@@ -5,6 +5,7 @@
   },
   "nav": {
     "home": "Início",
+    "squad": "Plantel",
     "aboutData": "Sobre os Dados"
   },
   "header": {
@@ -48,6 +49,18 @@
     },
     "noData": "Ainda não há dados sincronizados. Configure a `DATABASE_URL` e a `FOOTBALL_DATA_API_KEY` e corra a sincronização — ver a página \"Sobre os Dados\"."
   },
+  "squad": {
+    "title": "Plantel",
+    "intro": "Jogadores atuais do Grupo Desportivo Estoril Praia.",
+    "table": {
+      "player": "Jogador",
+      "position": "Posição",
+      "age": "Idade",
+      "nationality": "Nacionalidade",
+      "shirtNumber": "Nº"
+    },
+    "noData": "O plantel ainda não está disponível. O plano gratuito da football-data.org não inclui esta informação para esta competição — ver a página \"Sobre os Dados\" para mais detalhes. Esta página fica pronta para quando os dados existirem, seja pela API ou por inserção manual."
+  },
   "aboutData": {
     "title": "Sobre os Dados",
     "intro": "Este projeto foi construído para portefólio e combina dados reais, obtidos por API e inseridos manualmente, com secções experimentais claramente identificadas quando os dados são simulados.",
@@ -61,7 +74,7 @@
     "updateFrequencyTitle": "Frequência de Atualização",
     "updateFrequency": "Os dados de classificação, resultados e plantel são sincronizados por uma tarefa agendada (Vercel Cron Job) que corre uma vez por dia e grava os resultados na base de dados própria. O site nunca chama a API externa diretamente a cada visita, para respeitar os limites do plano gratuito.",
     "limitationsTitle": "Limitações Conhecidas",
-    "limitations": "O plano gratuito da football-data.org tem limites de pedidos por minuto e pode não incluir todos os eventos de jogo (golos, cartões, substituições) para todas as competições. Alguns dados históricos ou financeiros só são atualizados manualmente e de forma pontual.",
+    "limitations": "O plano gratuito da football-data.org tem limites de pedidos por minuto, não inclui o plantel completo (jogadores) para a Liga Portugal, e pode não incluir todos os eventos de jogo (golos, cartões, substituições) para todas as competições. Alguns dados históricos ou financeiros só são atualizados manualmente e de forma pontual.",
     "simulatedDataTitle": "Dados Simulados",
     "simulatedData": "Qualquer métrica avançada gerada artificialmente (ex: fadiga, GPS, wearables) é claramente assinalada com um aviso \"Dados simulados\" na interface e nunca é apresentada como dado real."
   },

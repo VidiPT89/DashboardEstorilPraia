@@ -5,6 +5,7 @@
   },
   "nav": {
     "home": "Home",
+    "squad": "Squad",
     "aboutData": "About the Data"
   },
   "header": {
@@ -48,6 +49,18 @@
     },
     "noData": "No synced data yet. Set `DATABASE_URL` and `FOOTBALL_DATA_API_KEY` and run the sync — see the \"About the Data\" page."
   },
+  "squad": {
+    "title": "Squad",
+    "intro": "Current players of Grupo Desportivo Estoril Praia.",
+    "table": {
+      "player": "Player",
+      "position": "Position",
+      "age": "Age",
+      "nationality": "Nationality",
+      "shirtNumber": "No."
+    },
+    "noData": "The squad isn't available yet. The football-data.org free tier doesn't include this data for this competition — see the \"About the Data\" page for details. This page is ready for whenever that data exists, whether via the API or manual entry."
+  },
   "aboutData": {
     "title": "About the Data",
     "intro": "This project was built as a portfolio piece and combines real data — fetched via API and entered manually — with experimental sections that are clearly labelled whenever the data is simulated.",
@@ -61,7 +74,7 @@
     "updateFrequencyTitle": "Update Frequency",
     "updateFrequency": "Standings, results and squad data are synced by a scheduled task (Vercel Cron Job) that runs once a day and writes the results into the project's own database. The site never calls the external API directly on each visit, to respect the free tier's rate limits.",
     "limitationsTitle": "Known Limitations",
-    "limitations": "The football-data.org free tier has request-per-minute limits and may not include every match event (goals, cards, substitutions) for every competition. Some historical or financial data is only updated manually and occasionally.",
+    "limitations": "The football-data.org free tier has request-per-minute limits, doesn't include the full squad (players) for Liga Portugal, and may not include every match event (goals, cards, substitutions) for every competition. Some historical or financial data is only updated manually and occasionally.",
     "simulatedDataTitle": "Simulated Data",
     "simulatedData": "Any artificially generated advanced metric (e.g. fatigue, GPS, wearables) is clearly flagged with a \"Simulated data\" notice in the interface and is never presented as real."
   },
