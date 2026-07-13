@@ -19,6 +19,17 @@ type GoalsChartProps = {
 export function GoalsChart({ data }: GoalsChartProps) {
   const t = useTranslations("home.charts");
 
+  if (data.length === 0) {
+    return (
+      <div className="card card-interactive p-5">
+        <h2 className="mb-4 text-base font-semibold">{t("goalsTitle")}</h2>
+        <p className="flex h-[260px] items-center justify-center text-center text-sm text-[var(--muted)]">
+          {t("noMatchesYet")}
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="card card-interactive p-5">
       <h2 className="mb-4 text-base font-semibold">{t("goalsTitle")}</h2>

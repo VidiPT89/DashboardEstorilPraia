@@ -25,6 +25,19 @@ export function HomeAwayChart({ data }: HomeAwayChartProps) {
     venueLabel: row.venue === "home" ? t("homeAwayHome") : t("homeAwayAway"),
   }));
 
+  const hasData = data.some((row) => row.won + row.drawn + row.lost > 0);
+
+  if (!hasData) {
+    return (
+      <div className="card card-interactive p-5">
+        <h2 className="mb-4 text-base font-semibold">{t("homeAwayTitle")}</h2>
+        <p className="flex h-[260px] items-center justify-center text-center text-sm text-[var(--muted)]">
+          {t("noMatchesYet")}
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="card card-interactive p-5">
       <h2 className="mb-4 text-base font-semibold">{t("homeAwayTitle")}</h2>

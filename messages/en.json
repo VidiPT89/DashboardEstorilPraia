@@ -28,7 +28,22 @@
       "points": "Pts"
     },
     "recentResultsTitle": "Recent Results",
+    "recentResultsEmpty": "No matches played yet this season.",
     "upcomingMatchesTitle": "Upcoming Matches",
+    "newsTitle": "News",
+    "newsSeeAll": "See all →",
+    "newsEmpty": "No news entered yet.",
+    "clubFacts": {
+      "title": "About the Club",
+      "founded": "Founded",
+      "yearsAgo": "years ago",
+      "stadium": "Stadium",
+      "competition": "Competition",
+      "players": "Players",
+      "averageAge": "Average Age",
+      "nationalities": "Nationalities",
+      "squadValue": "Squad Value"
+    },
     "countdown": {
       "days": "d",
       "hours": "h",
@@ -50,7 +65,8 @@
       "lost": "Losses",
       "topScorersTitle": "Top Scorers & Assists",
       "goals": "Goals",
-      "assists": "Assists"
+      "assists": "Assists",
+      "noMatchesYet": "No matches played yet this season to chart."
     },
     "noData": "No synced data yet. Set `DATABASE_URL` and `FOOTBALL_DATA_API_KEY` and run the sync — see the \"About the Data\" page."
   },

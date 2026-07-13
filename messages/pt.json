@@ -28,7 +28,22 @@
       "points": "Pts"
     },
     "recentResultsTitle": "Resultados Recentes",
+    "recentResultsEmpty": "Ainda não há jogos disputados nesta época.",
     "upcomingMatchesTitle": "Próximos Jogos",
+    "newsTitle": "Notícias",
+    "newsSeeAll": "Ver todas →",
+    "newsEmpty": "Ainda não há notícias inseridas.",
+    "clubFacts": {
+      "title": "Sobre o Clube",
+      "founded": "Fundado em",
+      "yearsAgo": "anos",
+      "stadium": "Estádio",
+      "competition": "Competição",
+      "players": "Jogadores",
+      "averageAge": "Idade Média",
+      "nationalities": "Nacionalidades",
+      "squadValue": "Valor do Plantel"
+    },
     "countdown": {
       "days": "d",
       "hours": "h",
@@ -50,7 +65,8 @@
       "lost": "Derrotas",
       "topScorersTitle": "Melhores Marcadores e Assistentes",
       "goals": "Golos",
-      "assists": "Assistências"
+      "assists": "Assistências",
+      "noMatchesYet": "Ainda não há jogos disputados nesta época para calcular este gráfico."
     },
     "noData": "Ainda não há dados sincronizados. Configure a `DATABASE_URL` e a `FOOTBALL_DATA_API_KEY` e corra a sincronização — ver a página \"Sobre os Dados\"."
   },

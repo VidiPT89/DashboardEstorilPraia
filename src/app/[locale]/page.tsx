@@ -7,9 +7,10 @@ import {
   getRecentResults,
   getUpcomingMatches,
 } from "@/lib/data/matches";
-import { getEstorilTeam } from "@/lib/data/team";
+import { getEstorilTeam, getSquadStats } from "@/lib/data/team";
 import { getTeamDisplayName } from "@/lib/estoril";
 import { getPlayersWithSeasonStats } from "@/lib/data/player-stats";
+import { getNewsPosts } from "@/lib/data/news";
 import { StandingsTable } from "@/components/home/StandingsTable";
 import { MatchCard } from "@/components/home/MatchCard";
 import { Countdown } from "@/components/home/Countdown";
@@ -18,10 +19,13 @@ import { GoalsChart } from "@/components/home/GoalsChart";
 import { HomeAwayChart } from "@/components/home/HomeAwayChart";
 import { TopScorersChart } from "@/components/home/TopScorersChart";
 import { TeamCrest } from "@/components/ui/TeamCrest";
+import { ClubFactsCard } from "@/components/home/ClubFactsCard";
+import { NewsPreview } from "@/components/home/NewsPreview";
 
 export const dynamic = "force-dynamic";
 
 type HomeData = {
+  team: Awaited<ReturnType<typeof getEstorilTeam>>;
   standings: Awaited<ReturnType<typeof getCurrentStandings>>;
   recentResults: Awaited<ReturnType<typeof getRecentResults>>;
   upcomingMatches: Awaited<ReturnType<typeof getUpcomingMatches>>;
@@ -29,12 +33,14 @@ type HomeData = {
   goalsPerMatchday: Awaited<ReturnType<typeof getGoalsPerMatchday>>;
   homeAwaySplit: Awaited<ReturnType<typeof getHomeAwaySplit>>;
   topScorers: Awaited<ReturnType<typeof getPlayersWithSeasonStats>>;
+  squadStats: Awaited<ReturnType<typeof getSquadStats>>;
+  newsPosts: Awaited<ReturnType<typeof getNewsPosts>>;
 };
 
 async function loadHomeData(): Promise<HomeData | null> {
   try {
     const team = await getEstorilTeam();
-    const [standings, recentResults, upcomingMatches, goalsPerMatchday, homeAwaySplit, topScorers] =
+    const [standings, recentResults, upcomingMatches, goalsPerMatchday, homeAwaySplit, topScorers, squadStats, newsPosts] =
       await Promise.all([
         getCurrentStandings(),
         getRecentResults(),
@@ -42,10 +48,23 @@ async function loadHomeData(): Promise<HomeData | null> {
         getGoalsPerMatchday(),
         getHomeAwaySplit(),
         getPlayersWithSeasonStats(),
+        getSquadStats(),
+        getNewsPosts(3),
       ]);
     const pointsEvolution = team && standings.season ? await getPointsEvolution(team.id, standings.season) : [];
 
-    return { standings, recentResults, upcomingMatches, pointsEvolution, goalsPerMatchday, homeAwaySplit, topScorers };
+    return {
+      team,
+      standings,
+      recentResults,
+      upcomingMatches,
+      pointsEvolution,
+      goalsPerMatchday,
+      homeAwaySplit,
+      topScorers,
+      squadStats,
+      newsPosts,
+    };
   } catch (error) {
     console.error("[home] failed to load dashboard data", error);
     return null;
@@ -111,24 +130,40 @@ export default async function Home({ params }: PageProps) {
       {!data || !hasStandings ? (
         <div className="card p-6 text-sm text-[var(--muted)]">{t("noData")}</div>
       ) : (
-        <div className="grid gap-6 lg:grid-cols-3">
-          <div style={stagger(1)} className="animate-in lg:col-span-2">
-            <StandingsTable rows={data.standings.rows} season={data.standings.season} />
+        <div className="flex flex-col gap-6">
+          <div className="grid gap-6 lg:grid-cols-3">
+            <div style={stagger(1)} className="animate-in lg:col-span-2">
+              <StandingsTable rows={data.standings.rows} season={data.standings.season} />
+            </div>
+            {data.team ? (
+              <div style={stagger(2)} className="animate-in">
+                <ClubFactsCard
+                  team={data.team}
+                  competition={data.standings.competition}
+                  squadStats={data.squadStats}
+                  locale={locale}
+                />
+              </div>
+            ) : null}
           </div>
 
-          <div className="flex flex-col gap-6">
-            <div style={stagger(2)} className="animate-in card overflow-hidden">
+          <div className="grid gap-6 md:grid-cols-3">
+            <div style={stagger(3)} className="animate-in card overflow-hidden">
               <h2 className="border-b border-[var(--border)] px-5 py-4 text-base font-semibold">
                 {t("recentResultsTitle")}
               </h2>
-              <ul>
-                {data.recentResults.map((match) => (
-                  <MatchCard key={match.id} match={match} locale={locale} />
-                ))}
-              </ul>
+              {data.recentResults.length === 0 ? (
+                <p className="px-5 py-4 text-sm text-[var(--muted)]">{t("recentResultsEmpty")}</p>
+              ) : (
+                <ul>
+                  {data.recentResults.map((match) => (
+                    <MatchCard key={match.id} match={match} locale={locale} />
+                  ))}
+                </ul>
+              )}
             </div>
 
-            <div style={stagger(3)} className="animate-in card overflow-hidden">
+            <div style={stagger(4)} className="animate-in card overflow-hidden">
               <h2 className="border-b border-[var(--border)] px-5 py-4 text-base font-semibold">
                 {t("upcomingMatchesTitle")}
               </h2>
@@ -138,20 +173,24 @@ export default async function Home({ params }: PageProps) {
                 ))}
               </ul>
             </div>
+
+            <div style={stagger(5)} className="animate-in">
+              <NewsPreview posts={data.newsPosts} locale={locale} />
+            </div>
           </div>
 
-          <div className="lg:col-span-3 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            <div style={stagger(4)} className="animate-in">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <div style={stagger(6)} className="animate-in">
               <PointsEvolutionChart data={data.pointsEvolution} />
             </div>
-            <div style={stagger(5)} className="animate-in">
+            <div style={stagger(7)} className="animate-in">
               <GoalsChart data={data.goalsPerMatchday} />
             </div>
-            <div style={stagger(6)} className="animate-in">
+            <div style={stagger(8)} className="animate-in">
               <HomeAwayChart data={data.homeAwaySplit} />
             </div>
             {data.topScorers.length > 0 ? (
-              <div style={stagger(7)} className="animate-in">
+              <div style={stagger(9)} className="animate-in">
                 <TopScorersChart players={data.topScorers} />
               </div>
             ) : null}
