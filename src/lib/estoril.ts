@@ -1,6 +1,11 @@
 export const ESTORIL_TEAM_ID = Number(process.env.FOOTBALL_DATA_ESTORIL_TEAM_ID ?? "582");
 export const COMPETITION_CODE = process.env.FOOTBALL_DATA_COMPETITION_CODE ?? "PPL";
 
+// football-data.org external team IDs for Primeira Liga's traditional "big three"
+// (FC Porto, Benfica, Sporting CP) — used to flag fixtures against them as
+// high-stakes matches. Stable IDs, not expected to change.
+export const BIG_THREE_TEAM_IDS = [503, 1903, 498];
+
 // football-data.org returns "GD Estoril Praia" as the team name — the popular
 // name for the club, not the legal entity. The professional team that plays
 // Primeira Liga (and runs the Sub-23 side) is actually run by Estoril Praia

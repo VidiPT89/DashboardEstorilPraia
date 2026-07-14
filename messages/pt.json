@@ -68,7 +68,20 @@
       "assists": "Assistências",
       "noMatchesYet": "Ainda não há jogos disputados nesta época para calcular este gráfico."
     },
-    "noData": "Ainda não há dados sincronizados. Configure a `DATABASE_URL` e a `FOOTBALL_DATA_API_KEY` e corra a sincronização — ver a página \"Sobre os Dados\"."
+    "noData": "Ainda não há dados sincronizados. Configure a `DATABASE_URL` e a `FOOTBALL_DATA_API_KEY` e corra a sincronização — ver a página \"Sobre os Dados\".",
+    "alerts": {
+      "title": "Alertas",
+      "matchesTitle": "Jogos Importantes",
+      "bigMatchReason": "Jogo grande",
+      "soonReason": "Esta semana",
+      "noMatches": "Sem jogos importantes nos próximos dias.",
+      "cardsTitle": "Cartões Amarelos",
+      "cardsBadgeLabel": "Dados Simulados",
+      "cardsBadgeNote": "A football-data.org não fornece dados de cartões no plano gratuito — estes valores são gerados artificialmente. Regra simplificada para esta demonstração: 3 amarelos acumulados = 1 jogo de suspensão.",
+      "atRisk": "a 1 cartão da suspensão",
+      "suspended": "suspenso no próximo jogo (simulado)",
+      "noCards": "Nenhum jogador simulado perto de suspensão."
+    }
   },
   "squad": {
     "title": "Plantel",
@@ -264,7 +277,8 @@
       "news": "Notícias do clube — inserção manual periódica, a partir do site oficial do Estoril Praia.",
       "marketValues": "Valores de mercado — carregamento manual pontual a partir do ZeroZero.pt (Sofascore e FBref foram consideradas primeiro, mas o Sofascore carrega os valores via JavaScript e o FBref não publica valores de mercado; nunca Transfermarkt, por questões de termos de uso). Só 14 dos 23 jogadores têm valor disponível na fonte.",
       "playerStats": "Golos e assistências da época 2025/26 (para o gráfico de marcadores e o comparador) — dataset manual, cruzado entre ESPN, Soccerway e FootyStats (o FBref, fonte preferida pelo spec, bloqueia acesso automático). Só 8 dos 23 jogadores têm estatística confirmada.",
-      "physical": "Desempenho físico (distância, sprints, velocidade máxima, frequência cardíaca, índice de fadiga) na página do Plantel — 100% simulado por um gerador próprio (src/lib/simulated/wearables.ts), nunca dados reais. A football-data.org não fornece dados de GPS ou wearables em nenhum plano."
+      "physical": "Desempenho físico (distância, sprints, velocidade máxima, frequência cardíaca, índice de fadiga) na página do Plantel — 100% simulado por um gerador próprio (src/lib/simulated/wearables.ts), nunca dados reais. A football-data.org não fornece dados de GPS ou wearables em nenhum plano.",
+      "alerts": "Alertas na página inicial: jogos importantes (contra FC Porto, Benfica ou Sporting, ou nos próximos 7 dias) usam dados 100% reais já sincronizados; os alertas de cartões amarelos perto da suspensão são 100% simulados (src/lib/simulated/cards.ts), porque a football-data.org não fornece dados de cartões no plano gratuito."
     },
     "updateFrequencyTitle": "Frequência de Atualização",
     "updateFrequency": "Os dados de classificação, resultados e calendário são sincronizados por uma tarefa agendada (Vercel Cron Job) que corre uma vez por dia e grava os resultados na base de dados própria. O site nunca chama a API externa diretamente a cada visita, para respeitar os limites do plano gratuito. O plantel, o histórico e as notícias são inseridos manualmente e atualizados de forma pontual.",
