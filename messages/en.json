@@ -261,6 +261,60 @@
   },
   "footer": {
     "developedBy": "Developed by",
-    "sourceCode": "Source code"
+    "sourceCode": "Source code",
+    "staffLink": "Staff"
+  },
+  "staff": {
+    "login": {
+      "title": "Staff Area",
+      "subtitle": "Restricted access for the Estoril Praia Analytics Hub team.",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "submitting": "Signing in...",
+      "error": "Incorrect email or password.",
+      "backToSite": "Back to site"
+    },
+    "nav": {
+      "dashboard": "Dashboard",
+      "loggedInAs": "Signed in as",
+      "logout": "Sign out"
+    },
+    "dashboard": {
+      "title": "Staff Dashboard",
+      "newsTitle": "News",
+      "newPost": "New post",
+      "empty": "No news posts yet.",
+      "edit": "Edit",
+      "delete": "Delete",
+      "confirmDelete": "Are you sure you want to delete this post? This can't be undone.",
+      "deleteSubmitting": "Deleting..."
+    },
+    "newsForm": {
+      "titleLabel": "Title",
+      "slugLabel": "Slug (URL)",
+      "slugHint": "Lowercase letters, numbers and hyphens only, e.g. new-coach-2026",
+      "contentLabel": "Content",
+      "sourceUrlLabel": "Source link (optional)",
+      "publishedAtLabel": "Published date",
+      "save": "Save",
+      "saving": "Saving...",
+      "cancel": "Cancel",
+      "createTitle": "New post",
+      "editTitle": "Edit post",
+      "error": "Couldn't save. Check the fields below."
+    },
+    "password": {
+      "title": "Change Password",
+      "current": "Current password",
+      "new": "New password",
+      "confirm": "Confirm new password",
+      "submit": "Update",
+      "submitting": "Updating...",
+      "success": "Password updated successfully.",
+      "errorMismatch": "The new passwords don't match.",
+      "errorWrongCurrent": "The current password is incorrect.",
+      "errorTooShort": "The new password must be at least 8 characters long."
+    }
   }
 }

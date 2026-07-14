@@ -61,6 +61,10 @@ export async function SiteFooter() {
             >
               {t("footer.sourceCode")}
             </a>
+            <span aria-hidden="true">·</span>
+            <Link href="/staff/login" className="transition-colors hover:text-[var(--club-yellow)]">
+              {t("footer.staffLink")}
+            </Link>
           </div>
         </div>
       </div>

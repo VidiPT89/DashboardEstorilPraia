@@ -197,6 +197,17 @@ model FinanceSnapshot {
   @@map("finance_snapshots")
 }
 
+model StaffUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("staff_users")
+}
+
 model SimulatedMetric {
   id          String   @id @default(cuid())
   type        String // fatigue | gps | wearable

@@ -261,6 +261,60 @@
   },
   "footer": {
     "developedBy": "Desenvolvido por",
-    "sourceCode": "Código-fonte"
+    "sourceCode": "Código-fonte",
+    "staffLink": "Staff"
+  },
+  "staff": {
+    "login": {
+      "title": "Área Staff",
+      "subtitle": "Acesso reservado à equipa do Estoril Praia Analytics Hub.",
+      "email": "Email",
+      "password": "Palavra-passe",
+      "submit": "Entrar",
+      "submitting": "A entrar...",
+      "error": "Email ou palavra-passe incorretos.",
+      "backToSite": "Voltar ao site"
+    },
+    "nav": {
+      "dashboard": "Painel",
+      "loggedInAs": "Sessão iniciada como",
+      "logout": "Sair"
+    },
+    "dashboard": {
+      "title": "Painel Staff",
+      "newsTitle": "Notícias",
+      "newPost": "Nova notícia",
+      "empty": "Ainda não há notícias.",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "confirmDelete": "Tens a certeza que queres eliminar esta notícia? Esta ação não pode ser desfeita.",
+      "deleteSubmitting": "A eliminar..."
+    },
+    "newsForm": {
+      "titleLabel": "Título",
+      "slugLabel": "Slug (URL)",
+      "slugHint": "Só letras minúsculas, números e hífens, ex.: novo-treinador-2026",
+      "contentLabel": "Conteúdo",
+      "sourceUrlLabel": "Link da fonte (opcional)",
+      "publishedAtLabel": "Data de publicação",
+      "save": "Guardar",
+      "saving": "A guardar...",
+      "cancel": "Cancelar",
+      "createTitle": "Nova notícia",
+      "editTitle": "Editar notícia",
+      "error": "Não foi possível guardar. Verifica os campos preenchidos."
+    },
+    "password": {
+      "title": "Alterar Palavra-passe",
+      "current": "Palavra-passe atual",
+      "new": "Nova palavra-passe",
+      "confirm": "Confirmar nova palavra-passe",
+      "submit": "Atualizar",
+      "submitting": "A atualizar...",
+      "success": "Palavra-passe atualizada com sucesso.",
+      "errorMismatch": "As palavras-passe novas não coincidem.",
+      "errorWrongCurrent": "A palavra-passe atual está incorreta.",
+      "errorTooShort": "A nova palavra-passe deve ter pelo menos 8 caracteres."
+    }
   }
 }

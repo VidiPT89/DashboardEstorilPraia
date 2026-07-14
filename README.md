@@ -20,6 +20,7 @@ Estoril Praia Analytics Hub combines real data — synced from the football-data
 - 🇵🇹 🇬🇧 Full bilingual interface (European Portuguese / English) via `next-intl`, with a one-click language switcher
 - 🌗 Light and dark themes, respecting the visitor's system preference with a manual override
 - ⏱️ **Scheduled sync** — a Vercel Cron Job fetches football-data.org once a day and writes into the project's own Postgres database; the site itself never calls the external API on a visit
+- 🔐 **Staff area** — Auth.js (Credentials) login gating a small admin panel where staff can create, edit and delete news posts without touching Prisma Studio, plus a self-service change-password form
 - 🗄️ A schema already modeling later phases (club history, market values, finance snapshots, simulated metrics) so the project can grow past its MVP without a rewrite
 
 ## 🛠️ Tech Stack
@@ -33,6 +34,7 @@ Estoril Praia Analytics Hub combines real data — synced from the football-data
 ![Neon](https://img.shields.io/badge/Neon-00E599?style=flat&logo=postgresql&logoColor=white)
 ![Recharts](https://img.shields.io/badge/Recharts-22B5BF?style=flat)
 ![next-intl](https://img.shields.io/badge/next--intl-000000?style=flat)
+![Auth.js](https://img.shields.io/badge/Auth.js-000000?style=flat)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white)
 
 ## 🏗️ Architecture
@@ -49,16 +51,22 @@ DashboardEstorilPraia/
 │   │   │   ├── layout.tsx       # Root HTML shell, theme script, header/footer
 │   │   │   ├── page.tsx         # Home — standings, fixtures, charts
 │   │   │   ├── sobre-dados/     # "About the Data" page
+│   │   │   ├── staff/           # Staff login + protected admin panel (news CRUD)
 │   │   │   └── globals.css      # Design tokens (club colors, light/dark)
-│   │   ├── api/cron/sync/       # Vercel Cron endpoint — syncs football-data.org into Postgres
+│   │   ├── api/
+│   │   │   ├── auth/[...nextauth]/ # Auth.js route handler
+│   │   │   └── cron/sync/       # Vercel Cron endpoint — syncs football-data.org into Postgres
 │   │   └── icon.tsx             # Generated club-colored favicon
 │   ├── components/
 │   │   ├── layout/              # Header, footer, language switcher, theme toggle
-│   │   └── home/                # Standings table, match cards, countdown, charts
+│   │   ├── home/                # Standings table, match cards, countdown, charts
+│   │   └── staff/                # Login form, news form, logout/delete buttons
 │   ├── lib/
 │   │   ├── football-data/       # API client + sync logic
 │   │   ├── data/                # Prisma query layer consumed by pages
+│   │   ├── actions/              # Server Actions for the staff panel (news CRUD, password change)
 │   │   └── prisma.ts            # Prisma Client, wired to Neon's serverless driver adapter
+│   ├── auth.ts                   # Auth.js configuration (Credentials provider, JWT session)
 │   └── i18n/                    # next-intl routing/config
 ├── messages/                    # pt.json / en.json translation dictionaries
 └── vercel.json                  # Cron schedule for the daily sync
@@ -90,6 +98,7 @@ cp .env.example .env
 # - DATABASE_URL: a free Postgres database from https://neon.tech
 # - FOOTBALL_DATA_API_KEY: a free key from https://www.football-data.org/client/register
 # - FOOTBALL_DATA_ESTORIL_TEAM_ID: numeric team ID (see comment in .env.example)
+# - AUTH_SECRET: session encryption secret for the staff area — generate with `openssl rand -base64 32`
 
 # 4. Create the database schema
 npm run db:migrate
@@ -106,7 +115,16 @@ curl http://localhost:3000/api/cron/sync
 
 In production, this same endpoint is called automatically once a day by the Vercel Cron Job defined in `vercel.json`.
 
-To add a news post, open Prisma Studio (`npm run db:studio`) and add a row to `NewsPost` — no code change or deploy needed.
+News posts are managed through the staff panel (see below) — Prisma Studio (`npm run db:studio`) still works as a fallback if you'd rather edit the `NewsPost` table directly.
+
+## 🔐 Staff Area
+
+A small admin panel at `/staff` (linked discreetly from the footer) lets staff create, edit and delete news posts and change their own password, without needing deploy access or Prisma Studio — modeled after the "visitor vs. staff" permission split from the original spec, in the spirit of Salesforce Profiles/Permission Sets.
+
+- **Auth**: [Auth.js](https://authjs.dev/) (`next-auth@5`) with a Credentials provider and JWT sessions — no OAuth, no third-party account required
+- **Passwords**: hashed with `bcryptjs`, never stored or logged in plain text
+- **Access control**: every protected page and Server Action re-checks the session server-side (`auth()`) — the client-side route grouping is a UX convenience, not the security boundary
+- **First account**: there's no public sign-up. The first `StaffUser` row is created once via a temporary seed script (see git history), and staff can change their own password from the dashboard afterwards. To add a teammate, insert a row into `StaffUser` via Prisma Studio with a `bcryptjs`-hashed password.
 
 ## 🏛️ Estoril Praia SAD vs. Grupo Desportivo Estoril Praia
 
@@ -129,8 +147,9 @@ All data sources, update frequency and known limitations are documented in full 
 ## 📝 Notes
 
 - This is a portfolio project — it favors a complete, working MVP (Fase 1 of the original spec: live standings, fixtures and squad) over an ambitious but unfinished feature set.
-- The database schema already models Fase 2/3 tables (club history, market values, finance snapshots, simulated metrics) so those features can be added without a schema rewrite.
-- No payment is required to run this project — Neon, Vercel and the football-data.org API key are all used on their free tiers.
+- Fase 2 (history, comparator, news, market values) is complete, and Fase 3 is in progress — the staff area (login + news management) is the first piece; xG and the tactical heatmap are out of scope, since the football-data.org free tier doesn't provide shot/event data and the project stays 100% free-tier by design.
+- The database schema already models remaining Fase 3 tables (finance snapshots, simulated metrics) so those features can be added without a schema rewrite.
+- No payment is required to run this project — Neon, Vercel, the football-data.org API key and Auth.js are all used on their free tiers, with no third-party account needed for staff login.
 
 ## 📄 License
 
