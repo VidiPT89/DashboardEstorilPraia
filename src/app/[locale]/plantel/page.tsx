@@ -2,7 +2,9 @@ import { differenceInYears } from "date-fns";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getEstorilSquad } from "@/lib/data/team";
 import { getPlayersWithSeasonStats } from "@/lib/data/player-stats";
+import { getSimulatedPhysicalData } from "@/lib/data/simulated-metrics";
 import { PlayerComparator } from "@/components/squad/PlayerComparator";
+import { PhysicalPerformanceSection } from "@/components/squad/PhysicalPerformanceSection";
 
 export const dynamic = "force-dynamic";
 
@@ -26,6 +28,7 @@ export default async function SquadPage({ params }: PageProps) {
   const t = await getTranslations("squad");
   const players = await getEstorilSquad().catch(() => []);
   const playersWithStats = await getPlayersWithSeasonStats().catch(() => []);
+  const physicalData = await getSimulatedPhysicalData().catch(() => []);
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
@@ -72,6 +75,8 @@ export default async function SquadPage({ params }: PageProps) {
           <PlayerComparator players={playersWithStats} />
         </div>
       ) : null}
+
+      <PhysicalPerformanceSection players={physicalData} />
     </div>
   );
 }

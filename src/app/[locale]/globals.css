@@ -19,6 +19,9 @@
   --chart-lost: #e34948;
   --chart-grid: #e1e0d9;
   --chart-ink-muted: #898781;
+  --simulated-accent: #b45309;
+  --simulated-bg: #fffbeb;
+  --simulated-border: #f59e0b;
 }
 
 :root[data-theme="dark"] {
@@ -40,6 +43,9 @@
   --chart-lost: #e66767;
   --chart-grid: #2c2c2a;
   --chart-ink-muted: #898781;
+  --simulated-accent: #fbbf24;
+  --simulated-bg: rgba(245, 158, 11, 0.1);
+  --simulated-border: rgba(245, 158, 11, 0.4);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -62,6 +68,9 @@
     --chart-lost: #e66767;
     --chart-grid: #2c2c2a;
     --chart-ink-muted: #898781;
+    --simulated-accent: #fbbf24;
+    --simulated-bg: rgba(245, 158, 11, 0.1);
+    --simulated-border: rgba(245, 158, 11, 0.4);
   }
 }
 
