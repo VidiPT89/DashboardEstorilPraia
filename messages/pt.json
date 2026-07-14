@@ -128,7 +128,11 @@
       },
       "bestEarlyFinish1948": {
         "title": "Melhor classificação da década",
-        "description": "4º lugar na 1ª Divisão, a melhor classificação do clube até então."
+        "description": "4º lugar na 1ª Divisão — um resultado que só voltaria a ser igualado 66 anos depois, em 2013/14."
+      },
+      "goldenScorer1949": {
+        "title": "Miguel Lourenço em grande plano",
+        "description": "Um dos avançados mais marcantes da história do clube (139 jogos ao serviço do Estoril) atingiu o seu melhor registo: 19 golos em apenas 21 jogos nesta época."
       },
       "recordWin1950": {
         "title": "Maior vitória de sempre",
@@ -166,6 +170,10 @@
         "title": "Descida à 2ª divisão",
         "description": "Descida após o ciclo iniciado em 1990/91."
       },
+      "pauleta1996": {
+        "title": "A rampa de lançamento de Pauleta",
+        "description": "Aos 22 anos, Pauleta marcou cerca de 19 golos pelo Estoril na II Divisão, sob o comando de Carlos Manuel. A época chamou a atenção de clubes espanhóis e lançou a carreira do futuro melhor marcador de sempre da Seleção Portuguesa."
+      },
       "title2003": {
         "title": "Campeão da Segunda Divisão B",
         "description": "Campeão da Segunda Divisão B sob o comando de Ulisses Morais, a primeira de duas subidas consecutivas."
@@ -187,16 +195,16 @@
         "description": "Estabilização financeira e desportiva sob a gestão da Traffic Sports Europe."
       },
       "title2012": {
-        "title": "Novo título na Liga de Honra",
-        "description": "Campeão da Liga de Honra, com Marco Silva eleito Treinador do Ano da competição, e subida à Primeira Liga."
+        "title": "Marco Silva chega e sobe o Estoril",
+        "description": "Marco Silva, nomeado diretor desportivo em junho de 2011, assume o comando técnico a meio da época, com a equipa em 10º lugar na Liga de Honra. Perde apenas 3 dos 24 jogos seguintes e é campeão, devolvendo o Estoril à Primeira Liga 7 anos depois da despromoção de 2004/05. É eleito Treinador do Ano da competição."
       },
       "european2013": {
-        "title": "Qualificação europeia",
-        "description": "5º lugar na Primeira Liga, garantindo qualificação para competições europeias."
+        "title": "5º lugar e 1ª qualificação europeia",
+        "description": "Já na Primeira Liga, Marco Silva mantém-se no comando técnico e leva o Estoril ao 5º lugar, garantindo pela primeira vez na história do clube qualificação para uma competição europeia."
       },
       "bestFinish2014": {
-        "title": "Melhor classificação de sempre",
-        "description": "Melhor classificação de sempre do clube na Primeira Liga — 4º lugar — e estreia numa competição europeia (Liga Europa)."
+        "title": "4º lugar — melhor classificação de sempre",
+        "description": "Sob Marco Silva, o Estoril termina em 4º lugar na Primeira Liga, igualando o recorde de 1947/48 como a melhor classificação de sempre do clube, e estreia-se numa competição europeia (Liga Europa). No final da época, Marco Silva anuncia a saída do clube rumo a novos desafios."
       },
       "anniversary2014": {
         "title": "75º aniversário",

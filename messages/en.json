@@ -128,7 +128,11 @@
       },
       "bestEarlyFinish1948": {
         "title": "Best finish of the decade",
-        "description": "4th place in the top division, the club's best finish to date."
+        "description": "4th place in the top division — a result that would only be matched 66 years later, in 2013/14."
+      },
+      "goldenScorer1949": {
+        "title": "Miguel Lourenço's finest season",
+        "description": "One of the club's most prolific forwards (139 appearances for Estoril) hit his career-best record: 19 goals in just 21 games this season."
       },
       "recordWin1950": {
         "title": "Biggest-ever win",
@@ -166,6 +170,10 @@
         "title": "Relegated to the second division",
         "description": "Relegated after the cycle that began in 1990/91."
       },
+      "pauleta1996": {
+        "title": "Pauleta's launchpad",
+        "description": "At 22, Pauleta scored around 19 goals for Estoril in the Second Division under coach Carlos Manuel. The season caught the attention of Spanish clubs and launched the career of the future all-time top scorer for the Portuguese national team."
+      },
       "title2003": {
         "title": "Segunda Divisão B champions",
         "description": "Won the Segunda Divisão B title under Ulisses Morais, the first of two consecutive promotions."
@@ -187,16 +195,16 @@
         "description": "Financial and sporting stabilization under the management of Traffic Sports Europe."
       },
       "title2012": {
-        "title": "Liga de Honra champions again",
-        "description": "Won the Liga de Honra again, with Marco Silva named the competition's Coach of the Year, earning promotion to the Primeira Liga."
+        "title": "Marco Silva arrives and promotes Estoril",
+        "description": "Marco Silva, appointed director of football in June 2011, takes over as manager midway through the season with the team 10th in the Liga de Honra. He loses just 3 of the next 24 games and wins the title, returning Estoril to the Primeira Liga 7 years after the 2004/05 relegation. He's named the competition's Coach of the Year."
       },
       "european2013": {
-        "title": "European qualification",
-        "description": "Finished 5th in the Primeira Liga, securing qualification for European competition."
+        "title": "5th place and first European qualification",
+        "description": "Now in the Primeira Liga, Marco Silva stays on as manager and leads Estoril to 5th place, securing the club's first-ever qualification for European competition."
       },
       "bestFinish2014": {
-        "title": "Best-ever finish",
-        "description": "The club's best-ever Primeira Liga finish — 4th place — and its first appearance in a European competition (UEFA Europa League)."
+        "title": "4th place — best-ever finish",
+        "description": "Under Marco Silva, Estoril finish 4th in the Primeira Liga, matching the 1947/48 record as the club's best-ever finish, and make their debut in European competition (Europa League). At season's end, Marco Silva announces his departure for new challenges."
       },
       "anniversary2014": {
         "title": "75th anniversary",
