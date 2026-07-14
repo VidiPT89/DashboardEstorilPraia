@@ -20,7 +20,7 @@ export async function NewsPreview({ posts, locale }: NewsPreviewProps) {
   return (
     <div className="card overflow-hidden">
       <div className="flex items-center justify-between border-b border-[var(--border)] px-5 py-4">
-        <h2 className="text-base font-semibold">{t("newsTitle")}</h2>
+        <h2 className="section-title text-base font-semibold">{t("newsTitle")}</h2>
         <Link href="/noticias" className="text-xs font-medium text-[var(--club-blue)] hover:underline dark:text-[var(--club-yellow)]">
           {t("newsSeeAll")}
         </Link>

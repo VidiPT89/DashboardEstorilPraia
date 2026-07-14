@@ -27,7 +27,7 @@ export function TopScorersChart({ players }: TopScorersChartProps) {
 
   return (
     <div className="card card-interactive p-5">
-      <h2 className="mb-4 text-base font-semibold">{t("topScorersTitle")}</h2>
+      <h2 className="section-title mb-4 text-base font-semibold">{t("topScorersTitle")}</h2>
       <ResponsiveContainer width="100%" height={280}>
         <BarChart data={data} margin={{ top: 8, right: 16, left: -16, bottom: 0 }} barGap={2}>
           <CartesianGrid stroke="var(--chart-grid)" strokeDasharray="0" vertical={false} />

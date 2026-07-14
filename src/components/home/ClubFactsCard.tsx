@@ -50,7 +50,7 @@ export async function ClubFactsCard({ team, competition, squadStats, locale }: C
 
   return (
     <div className="card p-5">
-      <h2 className="text-base font-semibold">{t("title")}</h2>
+      <h2 className="section-title text-base font-semibold">{t("title")}</h2>
 
       <dl className="mt-4 space-y-2 text-sm">
         {facts.map((fact) => (

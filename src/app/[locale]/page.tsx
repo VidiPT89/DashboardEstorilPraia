@@ -149,7 +149,7 @@ export default async function Home({ params }: PageProps) {
 
           <div className="grid gap-6 md:grid-cols-3">
             <div style={stagger(3)} className="animate-in card overflow-hidden">
-              <h2 className="border-b border-[var(--border)] px-5 py-4 text-base font-semibold">
+              <h2 className="section-title border-b border-[var(--border)] px-5 py-4 text-base font-semibold">
                 {t("recentResultsTitle")}
               </h2>
               {data.recentResults.length === 0 ? (
@@ -164,7 +164,7 @@ export default async function Home({ params }: PageProps) {
             </div>
 
             <div style={stagger(4)} className="animate-in card overflow-hidden">
-              <h2 className="border-b border-[var(--border)] px-5 py-4 text-base font-semibold">
+              <h2 className="section-title border-b border-[var(--border)] px-5 py-4 text-base font-semibold">
                 {t("upcomingMatchesTitle")}
               </h2>
               <ul>

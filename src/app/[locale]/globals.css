@@ -105,6 +105,23 @@ body {
     border: 1px solid var(--border);
     border-radius: 999px;
   }
+
+  .section-title {
+    position: relative;
+    padding-left: 0.85rem;
+  }
+
+  .section-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 0.9em;
+    width: 3px;
+    border-radius: 999px;
+    background: var(--club-yellow);
+    transform: translateY(-50%);
+  }
 }
 
 /* Header texture: faint diagonal stripes, brand-tinted */

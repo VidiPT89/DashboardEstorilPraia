@@ -24,7 +24,7 @@ export async function StandingsTable({ rows, season }: StandingsTableProps) {
   return (
     <div className="card overflow-hidden">
       <div className="flex items-center justify-between border-b border-[var(--border)] px-5 py-4">
-        <h2 className="text-base font-semibold">{t("standingsTitle")}</h2>
+        <h2 className="section-title text-base font-semibold">{t("standingsTitle")}</h2>
         {seasonLabel ? (
           <span className="stat-pill px-2.5 py-1 text-xs font-medium text-[var(--muted)]">{seasonLabel}</span>
         ) : null}
