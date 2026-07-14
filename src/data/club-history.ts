@@ -15,7 +15,7 @@ export const CLUB_HISTORY: ClubHistoryEntry[] = [
   { id: "firstSport1940", year: "1940", category: "milestone" },
   { id: "inauguralParade1940", year: "1940", category: "milestone" },
   { id: "headquarters1941", year: "1941", category: "milestone" },
-  { id: "cupFinal1944", year: "1943/44", category: "milestone" },
+  { id: "cupFinal1944", year: "1943/44", category: "promotion" },
   { id: "debut1945", year: "1944/45", category: "milestone" },
   { id: "bestEarlyFinish1948", year: "1947/48", category: "milestone" },
   { id: "goldenScorer1949", year: "1948/49", category: "milestone" },
