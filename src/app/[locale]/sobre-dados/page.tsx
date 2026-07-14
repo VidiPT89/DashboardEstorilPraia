@@ -22,6 +22,7 @@ export default async function AboutDataPage({ params }: PageProps) {
         t("sources.playerStats"),
         t("sources.physical"),
         t("sources.alerts"),
+        t("sources.finance"),
       ],
     },
   ];

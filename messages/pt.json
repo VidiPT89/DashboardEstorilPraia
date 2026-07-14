@@ -8,6 +8,7 @@
     "squad": "Plantel",
     "history": "História",
     "news": "Notícias",
+    "finance": "Finanças",
     "aboutData": "Sobre os Dados"
   },
   "header": {
@@ -114,6 +115,23 @@
       "topSpeed": "Vel. Máxima",
       "heartRate": "FC Média",
       "fatigue": "Índice de Fadiga"
+    }
+  },
+  "finance": {
+    "title": "Finanças",
+    "intro": "Dados agregados dos Relatórios e Contas anuais da Estoril Praia SAD, publicados no site oficial do clube (época desportiva: 1 de julho a 30 de junho). Algumas épocas mostram o resultado líquido final e outras o resultado operacional (antes de financiamento e impostos) — ver a nota em cada época.",
+    "noData": "Ainda não há dados financeiros inseridos.",
+    "chartTitle": "Receitas vs Gastos por Época",
+    "revenueLabel": "Receitas",
+    "expensesLabel": "Gastos",
+    "resultLabel": "Resultado",
+    "viewReport": "Ver relatório oficial ↗",
+    "notes": {
+      "2020": "Resultado operacional (antes de gastos de financiamento e impostos), reportado como termo de comparação no Relatório e Contas 2021/2022 da Estoril Praia SAD.",
+      "2021": "Resultado líquido do período, declarado no Relatório e Contas 2021/2022: \"o balanço da Estoril SAD apresenta, em 30 de junho de 2022, um resultado líquido do período negativo de 438 511 euros.\"",
+      "2022": "Resultado líquido do período, aprovado em Assembleia Geral e declarado no Relatório e Contas 2022/2023. Resultado positivo impulsionado por mais-valias na venda de jogadores (André Franco, Arthur Gomes, entre outros). Receitas e gastos operacionais discriminados não estão disponíveis de forma direta para esta época.",
+      "2023": "Resultado líquido do período, aprovado em Assembleia Geral e declarado no Relatório e Contas 2023/2024.",
+      "2024": "Resultado operacional (antes de gastos de financiamento e impostos), declarado no Relatório e Contas 2024/2025: \"a Sociedade na época 2024/2025 teve um Resultado Operacional negativo no montante de 7 393 853 euros.\" O relatório não indica explicitamente o resultado líquido final desta época. Queda acentuada face à época anterior, associada a uma redução significativa nas receitas de transferências de jogadores."
     }
   },
   "clubHistory": {
@@ -278,7 +296,8 @@
       "marketValues": "Valores de mercado — carregamento manual pontual a partir do ZeroZero.pt (Sofascore e FBref foram consideradas primeiro, mas o Sofascore carrega os valores via JavaScript e o FBref não publica valores de mercado; nunca Transfermarkt, por questões de termos de uso). Só 14 dos 23 jogadores têm valor disponível na fonte.",
       "playerStats": "Golos e assistências da época 2025/26 (para o gráfico de marcadores e o comparador) — dataset manual, cruzado entre ESPN, Soccerway e FootyStats (o FBref, fonte preferida pelo spec, bloqueia acesso automático). Só 8 dos 23 jogadores têm estatística confirmada.",
       "physical": "Desempenho físico (distância, sprints, velocidade máxima, frequência cardíaca, índice de fadiga) na página do Plantel — 100% simulado por um gerador próprio (src/lib/simulated/wearables.ts), nunca dados reais. A football-data.org não fornece dados de GPS ou wearables em nenhum plano.",
-      "alerts": "Alertas na página inicial: jogos importantes (contra FC Porto, Benfica ou Sporting, ou nos próximos 7 dias) usam dados 100% reais já sincronizados; os alertas de cartões amarelos perto da suspensão são 100% simulados (src/lib/simulated/cards.ts), porque a football-data.org não fornece dados de cartões no plano gratuito."
+      "alerts": "Alertas na página inicial: jogos importantes (contra FC Porto, Benfica ou Sporting, ou nos próximos 7 dias) usam dados 100% reais já sincronizados; os alertas de cartões amarelos perto da suspensão são 100% simulados (src/lib/simulated/cards.ts), porque a football-data.org não fornece dados de cartões no plano gratuito.",
+      "finance": "Finanças — dados reais agregados dos 5 Relatórios e Contas anuais da Estoril Praia SAD (épocas 2020/21 a 2024/25), publicados publicamente no site oficial do clube e inseridos manualmente. Ver a página \"Finanças\" para o detalhe e a fonte de cada época."
     },
     "updateFrequencyTitle": "Frequência de Atualização",
     "updateFrequency": "Os dados de classificação, resultados e calendário são sincronizados por uma tarefa agendada (Vercel Cron Job) que corre uma vez por dia e grava os resultados na base de dados própria. O site nunca chama a API externa diretamente a cada visita, para respeitar os limites do plano gratuito. O plantel, o histórico e as notícias são inseridos manualmente e atualizados de forma pontual.",

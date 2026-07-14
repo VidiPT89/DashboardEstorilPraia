@@ -4,6 +4,7 @@ import type { getCurrentStandings } from "@/lib/data/standings";
 import { TeamCrest } from "@/components/ui/TeamCrest";
 import { ExportButtons } from "@/components/ui/ExportButtons";
 import type { ExportRow } from "@/lib/export/csv";
+import { formatSeasonLabel } from "@/lib/season";
 
 type StandingsRows = Awaited<ReturnType<typeof getCurrentStandings>>["rows"];
 
@@ -11,13 +12,6 @@ type StandingsTableProps = {
   rows: StandingsRows;
   season: string | null;
 };
-
-function formatSeasonLabel(season: string | null): string | null {
-  if (!season) return null;
-  const startYear = Number(season);
-  if (Number.isNaN(startYear)) return null;
-  return `${startYear}/${String(startYear + 1).slice(-2)}`;
-}
 
 export async function StandingsTable({ rows, season }: StandingsTableProps) {
   const t = await getTranslations("home");

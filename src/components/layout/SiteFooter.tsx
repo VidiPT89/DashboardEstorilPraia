@@ -32,6 +32,9 @@ export async function SiteFooter() {
           <Link href="/noticias" className="transition-colors hover:text-[var(--club-yellow)]">
             {t("nav.news")}
           </Link>
+          <Link href="/financas" className="transition-colors hover:text-[var(--club-yellow)]">
+            {t("nav.finance")}
+          </Link>
           <Link href="/sobre-dados" className="transition-colors hover:text-[var(--club-yellow)]">
             {t("nav.aboutData")}
           </Link>

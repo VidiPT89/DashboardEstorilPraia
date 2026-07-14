@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { href: "/plantel", key: "squad" },
   { href: "/historia", key: "history" },
   { href: "/noticias", key: "news" },
+  { href: "/financas", key: "finance" },
   { href: "/sobre-dados", key: "aboutData" },
 ] as const;
 

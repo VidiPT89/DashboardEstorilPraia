@@ -8,6 +8,7 @@
     "squad": "Squad",
     "history": "History",
     "news": "News",
+    "finance": "Finance",
     "aboutData": "About the Data"
   },
   "header": {
@@ -114,6 +115,23 @@
       "topSpeed": "Top Speed",
       "heartRate": "Avg. HR",
       "fatigue": "Fatigue Index"
+    }
+  },
+  "finance": {
+    "title": "Finance",
+    "intro": "Aggregated data from Estoril Praia SAD's annual Reports and Accounts, published on the club's official website (season: 1 July to 30 June). Some seasons show the final net result and others the operating result (before financing costs and taxes) — see the note under each season.",
+    "noData": "No financial data entered yet.",
+    "chartTitle": "Revenue vs Expenses by Season",
+    "revenueLabel": "Revenue",
+    "expensesLabel": "Expenses",
+    "resultLabel": "Result",
+    "viewReport": "View official report ↗",
+    "notes": {
+      "2020": "Operating result (before financing costs and taxes), reported as a comparison figure in the 2021/2022 Estoril Praia SAD Report and Accounts.",
+      "2021": "Final net result for the period, stated in the 2021/2022 Report and Accounts: \"the Estoril SAD balance sheet shows, as of 30 June 2022, a negative net result for the period of 438,511 euros.\"",
+      "2022": "Final net result for the period, approved at the General Meeting and stated in the 2022/2023 Report and Accounts. The positive result was driven by gains on player sales (André Franco, Arthur Gomes, among others). A detailed revenue/expenses split isn't directly available for this season.",
+      "2023": "Final net result for the period, approved at the General Meeting and stated in the 2023/2024 Report and Accounts.",
+      "2024": "Operating result (before financing costs and taxes), stated in the 2024/2025 Report and Accounts: \"the Company had a negative Operating Result of 7,393,853 euros in the 2024/2025 season.\" The report doesn't explicitly state the final net result for this season. A sharp drop from the prior season, tied to a significant decrease in player-transfer revenue."
     }
   },
   "clubHistory": {
@@ -278,7 +296,8 @@
       "marketValues": "Market values — occasional manual entry from ZeroZero.pt (Sofascore and FBref were considered first, but Sofascore loads values via JavaScript and FBref doesn't publish market values; never Transfermarkt, due to its terms of use). Only 14 of 23 players have a value available in the source.",
       "playerStats": "Goals and assists for the 2025/26 season (for the top scorers chart and the comparator) — manual dataset, cross-checked across ESPN, Soccerway and FootyStats (FBref, the spec's preferred source, blocks automated access). Only 8 of 23 players have a confirmed stat.",
       "physical": "Physical performance (distance, sprints, top speed, heart rate, fatigue index) on the Squad page — 100% simulated by an in-house generator (src/lib/simulated/wearables.ts), never real data. football-data.org doesn't provide GPS or wearable data on any plan.",
-      "alerts": "Homepage alerts: important matches (against FC Porto, Benfica or Sporting, or within the next 7 days) use 100% real, already-synced data; yellow-card suspension-risk alerts are 100% simulated (src/lib/simulated/cards.ts), since football-data.org doesn't provide card data on the free tier."
+      "alerts": "Homepage alerts: important matches (against FC Porto, Benfica or Sporting, or within the next 7 days) use 100% real, already-synced data; yellow-card suspension-risk alerts are 100% simulated (src/lib/simulated/cards.ts), since football-data.org doesn't provide card data on the free tier.",
+      "finance": "Finance — real data aggregated from Estoril Praia SAD's 5 annual Reports and Accounts (2020/21 to 2024/25 seasons), publicly published on the club's official website and entered manually. See the \"Finance\" page for the detail and source of each season."
     },
     "updateFrequencyTitle": "Update Frequency",
     "updateFrequency": "Standings, results and fixtures are synced by a scheduled task (Vercel Cron Job) that runs once a day and writes the results into the project's own database. The site never calls the external API directly on each visit, to respect the free tier's rate limits. The squad, club history and news are entered manually and updated occasionally.",
