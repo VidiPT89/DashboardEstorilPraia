@@ -5,6 +5,8 @@ import { getPlayersWithSeasonStats } from "@/lib/data/player-stats";
 import { getSimulatedPhysicalData } from "@/lib/data/simulated-metrics";
 import { PlayerComparator } from "@/components/squad/PlayerComparator";
 import { PhysicalPerformanceSection } from "@/components/squad/PhysicalPerformanceSection";
+import { ExportButtons } from "@/components/ui/ExportButtons";
+import type { ExportRow } from "@/lib/export/csv";
 
 export const dynamic = "force-dynamic";
 
@@ -30,10 +32,39 @@ export default async function SquadPage({ params }: PageProps) {
   const playersWithStats = await getPlayersWithSeasonStats().catch(() => []);
   const physicalData = await getSimulatedPhysicalData().catch(() => []);
 
+  const exportColumns = [
+    { key: "shirtNumber", label: t("table.shirtNumber") },
+    { key: "player", label: t("table.player") },
+    { key: "position", label: t("table.position") },
+    { key: "age", label: t("table.age") },
+    { key: "nationality", label: t("table.nationality") },
+    { key: "marketValue", label: t("table.marketValue") },
+  ];
+  const exportRows: ExportRow[] = players.map((player) => ({
+    shirtNumber: player.shirtNumber ?? "—",
+    player: player.name,
+    position: player.position ?? "—",
+    age: player.dateOfBirth ? differenceInYears(new Date(), player.dateOfBirth) : "—",
+    nationality: player.nationality ?? "—",
+    marketValue: player.marketValue ? formatMarketValue(player.marketValue.value, locale) : "—",
+  }));
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
-      <h1 className="text-2xl font-bold">{t("title")}</h1>
-      <p className="mt-3 text-[var(--muted)]">{t("intro")}</p>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h1 className="text-2xl font-bold">{t("title")}</h1>
+          <p className="mt-3 text-[var(--muted)]">{t("intro")}</p>
+        </div>
+        {players.length > 0 ? (
+          <ExportButtons
+            title={t("title")}
+            filenameBase="estoril-praia-plantel"
+            columns={exportColumns}
+            rows={exportRows}
+          />
+        ) : null}
+      </div>
 
       {players.length === 0 ? (
         <div className="card mt-8 p-6 text-sm text-[var(--muted)]">{t("noData")}</div>

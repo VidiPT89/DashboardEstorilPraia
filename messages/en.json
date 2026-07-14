@@ -344,5 +344,11 @@
       "errorWrongCurrent": "The current password is incorrect.",
       "errorTooShort": "The new password must be at least 8 characters long."
     }
+  },
+  "export": {
+    "csv": "CSV",
+    "pdf": "PDF",
+    "csvAria": "Export as CSV",
+    "pdfAria": "Export as PDF"
   }
 }

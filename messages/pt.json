@@ -344,5 +344,11 @@
       "errorWrongCurrent": "A palavra-passe atual está incorreta.",
       "errorTooShort": "A nova palavra-passe deve ter pelo menos 8 caracteres."
     }
+  },
+  "export": {
+    "csv": "CSV",
+    "pdf": "PDF",
+    "csvAria": "Exportar como CSV",
+    "pdfAria": "Exportar como PDF"
   }
 }

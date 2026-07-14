@@ -2,6 +2,8 @@ import { getTranslations } from "next-intl/server";
 import { ESTORIL_TEAM_ID, getTeamDisplayName } from "@/lib/estoril";
 import type { getCurrentStandings } from "@/lib/data/standings";
 import { TeamCrest } from "@/components/ui/TeamCrest";
+import { ExportButtons } from "@/components/ui/ExportButtons";
+import type { ExportRow } from "@/lib/export/csv";
 
 type StandingsRows = Awaited<ReturnType<typeof getCurrentStandings>>["rows"];
 
@@ -21,13 +23,44 @@ export async function StandingsTable({ rows, season }: StandingsTableProps) {
   const t = await getTranslations("home");
   const seasonLabel = formatSeasonLabel(season);
 
+  const exportColumns = [
+    { key: "position", label: t("table.position") },
+    { key: "team", label: t("table.team") },
+    { key: "played", label: t("table.played") },
+    { key: "won", label: t("table.won") },
+    { key: "drawn", label: t("table.drawn") },
+    { key: "lost", label: t("table.lost") },
+    { key: "goalsFor", label: t("table.goalsFor") },
+    { key: "goalsAgainst", label: t("table.goalsAgainst") },
+    { key: "points", label: t("table.points") },
+  ];
+  const exportRows: ExportRow[] = rows.map((row) => ({
+    position: row.position,
+    team: getTeamDisplayName(row.team),
+    played: row.played,
+    won: row.won,
+    drawn: row.drawn,
+    lost: row.lost,
+    goalsFor: row.goalsFor,
+    goalsAgainst: row.goalsAgainst,
+    points: row.points,
+  }));
+
   return (
     <div className="card overflow-hidden">
-      <div className="flex items-center justify-between border-b border-[var(--border)] px-5 py-4">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--border)] px-5 py-4">
         <h2 className="section-title text-base font-semibold">{t("standingsTitle")}</h2>
-        {seasonLabel ? (
-          <span className="stat-pill px-2.5 py-1 text-xs font-medium text-[var(--muted)]">{seasonLabel}</span>
-        ) : null}
+        <div className="flex items-center gap-2">
+          {seasonLabel ? (
+            <span className="stat-pill px-2.5 py-1 text-xs font-medium text-[var(--muted)]">{seasonLabel}</span>
+          ) : null}
+          <ExportButtons
+            title={t("standingsTitle")}
+            filenameBase={`estoril-praia-classificacao-${season ?? "atual"}`}
+            columns={exportColumns}
+            rows={exportRows}
+          />
+        </div>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full min-w-[520px] text-sm">
