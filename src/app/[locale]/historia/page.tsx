@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CLUB_HISTORY, type ClubHistoryCategory } from "@/data/club-history";
 import { ClubHistoryTimeline } from "@/components/history/ClubHistoryTimeline";
+import { TrophyHighlights } from "@/components/history/TrophyHighlights";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -26,10 +27,14 @@ export default async function ClubHistoryPage({ params }: PageProps) {
     CATEGORIES.map((category) => [category, t(`categories.${category}`)]),
   ) as Record<ClubHistoryCategory, string>;
 
+  const trophies = entries.filter((entry) => entry.category === "title");
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
       <h1 className="text-2xl font-bold">{t("title")}</h1>
       <p className="mt-3 text-[var(--muted)]">{t("intro")}</p>
+
+      <TrophyHighlights trophies={trophies} sectionTitle={t("trophiesTitle")} />
 
       <ClubHistoryTimeline
         entries={entries}

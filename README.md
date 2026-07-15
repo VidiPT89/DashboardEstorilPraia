@@ -12,7 +12,7 @@ Estoril Praia Analytics Hub combines real data — synced from the football-data
 - 🏟️ **"About the Club" card** — founding year, stadium, competition, and live squad stats (player count, average age, nationality count, combined squad value) computed from real synced data
 - 📰 **News preview widget** on the homepage, linking through to the full news page
 - 👥 **Squad page** — 23 current players: name, shirt number and position from the official club site, age/nationality/market value cross-checked against ZeroZero.pt (age is approximate; market value isn't available for every player — never guessed, left blank instead)
-- 🕰️ **Club history timeline** — 32 milestones, promotions/relegations and titles since 1939, filterable by category, cross-checked against the official club site and Wikipedia
+- 🕰️ **Club history timeline** — 32 milestones, promotions/relegations and titles since 1939, filterable by category, cross-checked against the official club site and Wikipedia, with a dedicated "Trophies" highlight strip for the club's 4 titles
 - 📰 **News page** — manually entered from the official club site, database-backed so new posts don't require a deploy
 - 📈 **Points evolution by matchday**, **goals scored vs conceded**, **home vs away performance** and **top scorers/assists** charts (Recharts, club-branded, accessible color palette)
 - ⚔️ **Player comparator** — radar chart comparing goals, assists and combined contributions between any two players with season stats on record

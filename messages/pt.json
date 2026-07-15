@@ -137,6 +137,7 @@
   "clubHistory": {
     "title": "História",
     "intro": "Marcos históricos do Grupo Desportivo Estoril Praia, desde a fundação em 1939. Dataset manual, cruzado com a Wikipédia em português e em inglês — ver a página \"Sobre os Dados\".",
+    "trophiesTitle": "Troféus",
     "filterLabel": "Filtrar",
     "categories": {
       "all": "Todos",

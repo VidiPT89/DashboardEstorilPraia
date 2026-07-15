@@ -137,6 +137,7 @@
   "clubHistory": {
     "title": "History",
     "intro": "Historical milestones of Grupo Desportivo Estoril Praia, since its founding in 1939. Manual dataset, cross-checked against the Portuguese and English Wikipedia — see the \"About the Data\" page.",
+    "trophiesTitle": "Trophies",
     "filterLabel": "Filter",
     "categories": {
       "all": "All",

@@ -63,7 +63,6 @@ model Player {
   updatedAt   DateTime  @updatedAt
 
   team            Team              @relation(fields: [teamId], references: [id], onDelete: Cascade)
-  matchStats      PlayerMatchStat[]
   marketValues    MarketValue[]
   simulatedMetrics SimulatedMetric[]
 
@@ -90,7 +89,6 @@ model Match {
   competition      Competition       @relation(fields: [competitionId], references: [id])
   homeTeam         Team              @relation("HomeTeam", fields: [homeTeamId], references: [id])
   awayTeam         Team              @relation("AwayTeam", fields: [awayTeamId], references: [id])
-  playerMatchStats PlayerMatchStat[]
   simulatedMetrics SimulatedMetric[]
 
   @@index([competitionId])
@@ -98,23 +96,6 @@ model Match {
   @@index([awayTeamId])
   @@index([utcDate])
   @@map("matches")
-}
-
-model PlayerMatchStat {
-  id            String @id @default(cuid())
-  playerId      String
-  matchId       String
-  minutesPlayed Int?
-  goals         Int    @default(0)
-  assists       Int    @default(0)
-  yellowCards   Int    @default(0)
-  redCards      Int    @default(0)
-
-  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
-  match  Match  @relation(fields: [matchId], references: [id], onDelete: Cascade)
-
-  @@unique([playerId, matchId])
-  @@map("player_match_stats")
 }
 
 model TeamSeasonStat {
@@ -154,16 +135,6 @@ model NewsPost {
   createdAt   DateTime @default(now())
 
   @@map("news_posts")
-}
-
-model ClubHistoryEvent {
-  id          String  @id @default(cuid())
-  year        Int
-  title       String
-  description String
-  category    String // title | promotion | relegation | milestone
-
-  @@map("club_history")
 }
 
 model MarketValue {

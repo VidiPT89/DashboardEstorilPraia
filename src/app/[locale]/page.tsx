@@ -204,14 +204,17 @@ export default async function Home({ params }: PageProps) {
             </div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2">
             <div style={stagger(7)} className="animate-in">
               <PointsEvolutionChart data={data.pointsEvolution} />
             </div>
             <div style={stagger(8)} className="animate-in">
               <GoalsChart data={data.goalsPerMatchday} />
             </div>
-            <div style={stagger(9)} className="animate-in">
+            <div
+              style={stagger(9)}
+              className={`animate-in ${data.topScorers.length === 0 ? "md:col-span-2" : ""}`}
+            >
               <HomeAwayChart data={data.homeAwaySplit} />
             </div>
             {data.topScorers.length > 0 ? (
