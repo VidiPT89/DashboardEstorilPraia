@@ -293,7 +293,7 @@
       "standings": "Classificação, resultados e calendário — football-data.org (plano gratuito), via API REST.",
       "squad": "Plantel — nome, número e posição inseridos manualmente a partir do site oficial (a football-data.org não fornece o plantel completo para a Liga Portugal); idade, nacionalidade e valor de mercado cruzados com o ZeroZero.pt.",
       "history": "Histórico do clube — dataset manual, criado a partir de fontes públicas (Wikipédia, site oficial).",
-      "news": "Notícias do clube — inserção manual periódica, a partir do site oficial do Estoril Praia.",
+      "news": "Notícias do clube — inserção manual periódica, sobretudo a partir do site oficial do Estoril Praia, complementada por imprensa desportiva (Record, A Bola, O Jogo, ZeroZero) quando relevante.",
       "marketValues": "Valores de mercado — carregamento manual pontual a partir do ZeroZero.pt (Sofascore e FBref foram consideradas primeiro, mas o Sofascore carrega os valores via JavaScript e o FBref não publica valores de mercado; nunca Transfermarkt, por questões de termos de uso). Só 14 dos 23 jogadores têm valor disponível na fonte.",
       "playerStats": "Golos e assistências da época 2025/26 (para o gráfico de marcadores e o comparador) — dataset manual, cruzado entre ESPN, Soccerway e FootyStats (o FBref, fonte preferida pelo spec, bloqueia acesso automático). Só 8 dos 23 jogadores têm estatística confirmada.",
       "physical": "Desempenho físico (distância, sprints, velocidade máxima, frequência cardíaca, índice de fadiga) na página do Plantel — 100% simulado por um gerador próprio (src/lib/simulated/wearables.ts), nunca dados reais. A football-data.org não fornece dados de GPS ou wearables em nenhum plano.",

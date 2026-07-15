@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "crests.football-data.org" },
+      { protocol: "https", hostname: "alvercasad.pt" },
+      { protocol: "https", hostname: "casapiaac.pt" },
     ],
   },
 };

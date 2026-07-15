@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { getTeamDisplayName } from "@/lib/estoril";
+import { getTeamCrestUrl, getTeamDisplayName } from "@/lib/estoril";
 import { TeamCrest } from "@/components/ui/TeamCrest";
 import { SimulatedDataBadge } from "@/components/ui/SimulatedDataBadge";
 import type { ImportantMatch } from "@/lib/data/matches";
@@ -39,8 +39,8 @@ export async function AlertsCard({ importantMatches, cardAlerts, locale }: Alert
                 className="flex items-center gap-3 rounded-lg bg-[var(--surface-raised)] px-3 py-2"
               >
                 <span className="flex shrink-0 items-center -space-x-2">
-                  <TeamCrest src={match.homeTeam.crestUrl} alt={match.homeTeam.name} size={22} />
-                  <TeamCrest src={match.awayTeam.crestUrl} alt={match.awayTeam.name} size={22} />
+                  <TeamCrest src={getTeamCrestUrl(match.homeTeam)} alt={match.homeTeam.name} size={22} />
+                  <TeamCrest src={getTeamCrestUrl(match.awayTeam)} alt={match.awayTeam.name} size={22} />
                 </span>
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-medium">

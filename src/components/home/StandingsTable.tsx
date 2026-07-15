@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { ESTORIL_TEAM_ID, getTeamDisplayName } from "@/lib/estoril";
+import { ESTORIL_TEAM_ID, getTeamCrestUrl, getTeamDisplayName } from "@/lib/estoril";
 import type { getCurrentStandings } from "@/lib/data/standings";
 import { TeamCrest } from "@/components/ui/TeamCrest";
 import { ExportButtons } from "@/components/ui/ExportButtons";
@@ -86,7 +86,7 @@ export async function StandingsTable({ rows, season }: StandingsTableProps) {
                   <td className="px-4 py-2.5">{row.position}</td>
                   <td className="px-4 py-2.5">
                     <span className="flex items-center gap-2.5">
-                      <TeamCrest src={row.team.crestUrl} alt={row.team.name} size={20} className="shrink-0" />
+                      <TeamCrest src={getTeamCrestUrl(row.team)} alt={row.team.name} size={20} className="shrink-0" />
                       <span className={isEstoril ? "text-[var(--club-blue)] dark:text-[var(--club-yellow)]" : ""}>
                         {getTeamDisplayName(row.team)}
                       </span>

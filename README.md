@@ -140,6 +140,8 @@ These are different entities. **Estoril Praia SAD** runs the first team (Primeir
 
 football-data.org returns `"GD Estoril Praia"` as the team name, since that's the club's popular name — the raw synced data keeps that value untouched (see [`src/lib/football-data/sync.ts`](src/lib/football-data/sync.ts)). A display-only override in [`src/lib/estoril.ts`](src/lib/estoril.ts) (`getTeamDisplayName`) renders it as "Estoril Praia SAD" wherever the professional team is shown, without touching the database.
 
+The same file also has `getTeamCrestUrl`, a display-only override for two clubs (FC Alverca, Casa Pia AC) whose football-data.org crest image is outdated or wrong — confirmed against each club's own official website. It swaps in the correct crest URL without touching the synced `crestUrl` column, for the same reason as the name override above.
+
 ## 📊 Data Sources
 
 All data sources, update frequency and known limitations are documented in full on the **"About the Data"** page (`/sobre-dados` / `/about the data`). In short:

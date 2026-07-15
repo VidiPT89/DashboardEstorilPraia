@@ -9,7 +9,7 @@ import {
   getUpcomingMatches,
 } from "@/lib/data/matches";
 import { getEstorilTeam, getSquadStats } from "@/lib/data/team";
-import { getTeamDisplayName } from "@/lib/estoril";
+import { getTeamCrestUrl, getTeamDisplayName } from "@/lib/estoril";
 import { getPlayersWithSeasonStats } from "@/lib/data/player-stats";
 import { getNewsPosts } from "@/lib/data/news";
 import { getSimulatedCardAlerts } from "@/lib/data/simulated-metrics";
@@ -125,10 +125,10 @@ export default async function Home({ params }: PageProps) {
             <div className="flex items-center gap-4">
               <div className="flex items-center -space-x-3">
                 <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 ring-2 ring-white/40">
-                  <TeamCrest src={nextMatch.homeTeam.crestUrl} alt={nextMatch.homeTeam.name} size={38} />
+                  <TeamCrest src={getTeamCrestUrl(nextMatch.homeTeam)} alt={nextMatch.homeTeam.name} size={38} />
                 </span>
                 <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 ring-2 ring-white/40">
-                  <TeamCrest src={nextMatch.awayTeam.crestUrl} alt={nextMatch.awayTeam.name} size={38} />
+                  <TeamCrest src={getTeamCrestUrl(nextMatch.awayTeam)} alt={nextMatch.awayTeam.name} size={38} />
                 </span>
               </div>
               <div>
@@ -160,20 +160,25 @@ export default async function Home({ params }: PageProps) {
             <div style={stagger(2)} className="animate-in lg:col-span-2">
               <StandingsTable rows={data.standings.rows} season={data.standings.season} />
             </div>
-            {data.team ? (
-              <div style={stagger(3)} className="animate-in">
-                <ClubFactsCard
-                  team={data.team}
-                  competition={data.standings.competition}
-                  squadStats={data.squadStats}
-                  locale={locale}
-                />
+            <div className="flex flex-col gap-6">
+              {data.team ? (
+                <div style={stagger(3)} className="animate-in">
+                  <ClubFactsCard
+                    team={data.team}
+                    competition={data.standings.competition}
+                    squadStats={data.squadStats}
+                    locale={locale}
+                  />
+                </div>
+              ) : null}
+              <div style={stagger(4)} className="animate-in">
+                <NewsPreview posts={data.newsPosts} locale={locale} />
               </div>
-            ) : null}
+            </div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            <div style={stagger(4)} className="animate-in card overflow-hidden">
+          <div className="grid gap-6 md:grid-cols-2">
+            <div style={stagger(5)} className="animate-in card overflow-hidden">
               <h2 className="section-title border-b border-[var(--border)] px-5 py-4 text-base font-semibold">
                 {t("recentResultsTitle")}
               </h2>
@@ -188,7 +193,7 @@ export default async function Home({ params }: PageProps) {
               )}
             </div>
 
-            <div style={stagger(5)} className="animate-in card overflow-hidden">
+            <div style={stagger(6)} className="animate-in card overflow-hidden">
               <h2 className="section-title border-b border-[var(--border)] px-5 py-4 text-base font-semibold">
                 {t("upcomingMatchesTitle")}
               </h2>
@@ -197,10 +202,6 @@ export default async function Home({ params }: PageProps) {
                   <MatchCard key={match.id} match={match} locale={locale} />
                 ))}
               </ul>
-            </div>
-
-            <div style={stagger(6)} className="animate-in">
-              <NewsPreview posts={data.newsPosts} locale={locale} />
             </div>
           </div>
 
