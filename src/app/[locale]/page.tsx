@@ -158,9 +158,40 @@ export default async function Home({ params }: PageProps) {
           ) : null}
 
           <div className="grid gap-6 lg:grid-cols-3">
-            <div style={stagger(2)} className="animate-in lg:col-span-2">
-              <StandingsTable rows={data.standings.rows} season={data.standings.season} />
+            <div className="flex flex-col gap-6 lg:col-span-2">
+              <div style={stagger(2)} className="animate-in">
+                <StandingsTable rows={data.standings.rows} season={data.standings.season} />
+              </div>
+
+              <div className="grid gap-6 sm:grid-cols-2">
+                <div style={stagger(6)} className="animate-in card overflow-hidden">
+                  <h2 className="section-title border-b border-[var(--border)] px-5 py-4 text-base font-semibold">
+                    {t("recentResultsTitle")}
+                  </h2>
+                  {data.recentResults.length === 0 ? (
+                    <p className="px-5 py-4 text-sm text-[var(--muted)]">{t("recentResultsEmpty")}</p>
+                  ) : (
+                    <ul>
+                      {data.recentResults.map((match) => (
+                        <MatchCard key={match.id} match={match} locale={locale} />
+                      ))}
+                    </ul>
+                  )}
+                </div>
+
+                <div style={stagger(7)} className="animate-in card overflow-hidden">
+                  <h2 className="section-title border-b border-[var(--border)] px-5 py-4 text-base font-semibold">
+                    {t("upcomingMatchesTitle")}
+                  </h2>
+                  <ul>
+                    {data.upcomingMatches.map((match) => (
+                      <MatchCard key={match.id} match={match} locale={locale} />
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
+
             <div className="flex flex-col gap-6">
               {data.team ? (
                 <div style={stagger(3)} className="animate-in">
@@ -180,34 +211,6 @@ export default async function Home({ params }: PageProps) {
                   <TopScorerSpotlight players={data.topScorers} />
                 </div>
               ) : null}
-            </div>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            <div style={stagger(6)} className="animate-in card overflow-hidden">
-              <h2 className="section-title border-b border-[var(--border)] px-5 py-4 text-base font-semibold">
-                {t("recentResultsTitle")}
-              </h2>
-              {data.recentResults.length === 0 ? (
-                <p className="px-5 py-4 text-sm text-[var(--muted)]">{t("recentResultsEmpty")}</p>
-              ) : (
-                <ul>
-                  {data.recentResults.map((match) => (
-                    <MatchCard key={match.id} match={match} locale={locale} />
-                  ))}
-                </ul>
-              )}
-            </div>
-
-            <div style={stagger(7)} className="animate-in card overflow-hidden">
-              <h2 className="section-title border-b border-[var(--border)] px-5 py-4 text-base font-semibold">
-                {t("upcomingMatchesTitle")}
-              </h2>
-              <ul>
-                {data.upcomingMatches.map((match) => (
-                  <MatchCard key={match.id} match={match} locale={locale} />
-                ))}
-              </ul>
             </div>
           </div>
 
