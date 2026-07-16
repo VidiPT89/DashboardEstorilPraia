@@ -80,13 +80,7 @@
       "matchesTitle": "Important Matches",
       "bigMatchReason": "Big match",
       "soonReason": "This week",
-      "noMatches": "No important matches in the coming days.",
-      "cardsTitle": "Yellow & Red Cards",
-      "atRisk": "one card away from suspension",
-      "suspended": "suspended for the next match (simulated)",
-      "redCard": "1 red card this season",
-      "redCards": "{count} red cards this season",
-      "noCards": "No simulated player is close to suspension or has a red card."
+      "noMatches": "No important matches in the coming days."
     }
   },
   "squad": {
@@ -107,19 +101,6 @@
       "goals": "Goals",
       "assists": "Assists",
       "contributions": "Contributions"
-    }
-  },
-  "physical": {
-    "title": "Physical Performance",
-    "badgeLabel": "Simulated Data",
-    "badgeNote": "These values are artificially generated for demonstration purposes — football-data.org doesn't provide GPS, heart-rate or fatigue data on the free tier. They never reflect players' real physical performance.",
-    "table": {
-      "player": "Player",
-      "distance": "Distance",
-      "sprints": "Sprints",
-      "topSpeed": "Top Speed",
-      "heartRate": "Avg. HR",
-      "fatigue": "Fatigue Index"
     }
   },
   "finance": {
@@ -290,7 +271,7 @@
   },
   "aboutData": {
     "title": "About the Data",
-    "intro": "This project was built as a portfolio piece and combines real data — fetched via API and entered manually — with experimental sections that are clearly labelled whenever the data is simulated.",
+    "intro": "This project was built as a portfolio piece and uses only real data — fetched via API or entered manually from public sources. There are no invented-data sections: when no real, free data source is available, the feature is left out rather than simulated.",
     "entityTitle": "Estoril Praia SAD vs. Grupo Desportivo Estoril Praia",
     "entityNote": "These are different entities. Estoril Praia SAD runs the first team (Primeira Liga) and the Sub-23 side — it's what the standings, fixtures, squad, news and stats on this site refer to. Grupo Desportivo Estoril Praia is the parent club, responsible for the youth academy and other sports sections — it's only referenced on the \"History\" page, about the club's 1939 founding. football-data.org returns \"GD Estoril Praia\" as the team name since that's the club's popular name; this site corrects the display to \"Estoril Praia SAD\" in the contexts where that's the accurate entity, without altering the synced data itself.",
     "sourcesTitle": "Data Sources",
@@ -301,16 +282,15 @@
       "news": "Club news — periodic manual entry, mainly from the official Estoril Praia website, supplemented by sports press (Record, A Bola, O Jogo, ZeroZero) when relevant.",
       "marketValues": "Market values — occasional manual entry from ZeroZero.pt (Sofascore and FBref were considered first, but Sofascore loads values via JavaScript and FBref doesn't publish market values; never Transfermarkt, due to its terms of use). Only 14 of 23 players have a value available in the source.",
       "playerStats": "Goals and assists for the 2025/26 season (for the top scorers chart and the comparator) — manual dataset, cross-checked across ESPN, Soccerway and FootyStats (FBref, the spec's preferred source, blocks automated access). Only 8 of 23 players have a confirmed stat.",
-      "physical": "Physical performance (distance, sprints, top speed, heart rate, fatigue index) on the Squad page — 100% simulated by an in-house generator (src/lib/simulated/wearables.ts), never real data. football-data.org doesn't provide GPS or wearable data on any plan.",
-      "alerts": "Homepage alerts: important matches (against FC Porto, Benfica or Sporting, or within the next 7 days) use 100% real, already-synced data; yellow and red card alerts are 100% simulated (src/lib/simulated/cards.ts), since football-data.org doesn't provide card data on the free tier.",
+      "alerts": "Homepage alerts: important matches (against FC Porto, Benfica or Sporting, or within the next 7 days) use 100% real, already-synced data. This project has no simulated-data sections — any feature without a real, free data source available (e.g. cards, GPS/fatigue, xG, tactical heatmap) was left out rather than invented.",
       "finance": "Finance — real data aggregated from Estoril Praia SAD's 5 annual Reports and Accounts (2020/21 to 2024/25 seasons), publicly published on the club's official website and entered manually. See the \"Finance\" page for the detail and source of each season."
     },
     "updateFrequencyTitle": "Update Frequency",
     "updateFrequency": "Standings, results and fixtures are synced by a scheduled task (Vercel Cron Job) that runs once a day and writes the results into the project's own database. The site never calls the external API directly on each visit, to respect the free tier's rate limits. The squad, club history and news are entered manually and updated occasionally.",
     "limitationsTitle": "Known Limitations",
     "limitations": "The football-data.org free tier has request-per-minute limits, doesn't include the full squad for Liga Portugal (so the squad is entered manually), and may not include every match event (goals, cards, substitutions) for every competition. Between seasons, the API pairs the previous season's final standings with information about the next one — the site detects this and labels the standings with the season the data actually belongs to (e.g. \"2025/26\"), so it's never mistaken for the upcoming season's table. Player age is approximate (based only on the age listed by ZeroZero.pt, not an exact date of birth, so it may be off by up to a year). Not every player has a market value available in the source. Some historical or financial data is only updated manually and occasionally.",
-    "simulatedDataTitle": "Simulated Data",
-    "simulatedData": "Any artificially generated advanced metric (e.g. fatigue, GPS, wearables) is clearly flagged with a \"Simulated data\" notice in the interface and is never presented as real."
+    "simulatedDataTitle": "Real-Data-Only Policy",
+    "simulatedData": "This project never presents invented data, under any circumstances. Two experimental sections (simulated physical performance and yellow/red-card alerts) were built and then removed precisely because no real, free data source existed to back them. When a feature from the original spec has no real, free data source available (e.g. xG, tactical heatmap), it's left out of the project rather than simulated."
   },
   "footer": {
     "developedBy": "Developed by",

@@ -2,9 +2,7 @@ import { differenceInYears } from "date-fns";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getEstorilSquad } from "@/lib/data/team";
 import { getPlayersWithSeasonStats } from "@/lib/data/player-stats";
-import { getSimulatedPhysicalData } from "@/lib/data/simulated-metrics";
 import { PlayerComparator } from "@/components/squad/PlayerComparator";
-import { PhysicalPerformanceSection } from "@/components/squad/PhysicalPerformanceSection";
 import { ExportButtons } from "@/components/ui/ExportButtons";
 import type { ExportRow } from "@/lib/export/csv";
 
@@ -30,7 +28,6 @@ export default async function SquadPage({ params }: PageProps) {
   const t = await getTranslations("squad");
   const players = await getEstorilSquad().catch(() => []);
   const playersWithStats = await getPlayersWithSeasonStats().catch(() => []);
-  const physicalData = await getSimulatedPhysicalData().catch(() => []);
 
   const exportColumns = [
     { key: "shirtNumber", label: t("table.shirtNumber") },
@@ -106,8 +103,6 @@ export default async function SquadPage({ params }: PageProps) {
           <PlayerComparator players={playersWithStats} />
         </div>
       ) : null}
-
-      <PhysicalPerformanceSection players={physicalData} />
     </div>
   );
 }

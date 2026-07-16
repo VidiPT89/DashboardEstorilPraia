@@ -80,13 +80,7 @@
       "matchesTitle": "Jogos Importantes",
       "bigMatchReason": "Jogo grande",
       "soonReason": "Esta semana",
-      "noMatches": "Sem jogos importantes nos próximos dias.",
-      "cardsTitle": "Cartões Amarelos e Vermelhos",
-      "atRisk": "a 1 cartão da suspensão",
-      "suspended": "suspenso no próximo jogo (simulado)",
-      "redCard": "1 cartão vermelho esta época",
-      "redCards": "{count} cartões vermelhos esta época",
-      "noCards": "Nenhum jogador simulado perto de suspensão ou com cartão vermelho."
+      "noMatches": "Sem jogos importantes nos próximos dias."
     }
   },
   "squad": {
@@ -107,19 +101,6 @@
       "goals": "Golos",
       "assists": "Assistências",
       "contributions": "Contribuições"
-    }
-  },
-  "physical": {
-    "title": "Desempenho Físico",
-    "badgeLabel": "Dados Simulados",
-    "badgeNote": "Estes valores são gerados artificialmente para fins de demonstração — a football-data.org não fornece dados de GPS, frequência cardíaca ou fadiga no plano gratuito. Nunca refletem o desempenho físico real dos jogadores.",
-    "table": {
-      "player": "Jogador",
-      "distance": "Distância",
-      "sprints": "Sprints",
-      "topSpeed": "Vel. Máxima",
-      "heartRate": "FC Média",
-      "fatigue": "Índice de Fadiga"
     }
   },
   "finance": {
@@ -290,7 +271,7 @@
   },
   "aboutData": {
     "title": "Sobre os Dados",
-    "intro": "Este projeto foi construído para portefólio e combina dados reais, obtidos por API e inseridos manualmente, com secções experimentais claramente identificadas quando os dados são simulados.",
+    "intro": "Este projeto foi construído para portefólio e usa apenas dados reais — obtidos por API ou inseridos manualmente a partir de fontes públicas. Não existem secções de dados inventados: quando não há uma fonte real e gratuita disponível, a funcionalidade fica de fora em vez de ser simulada.",
     "entityTitle": "Estoril Praia SAD vs. Grupo Desportivo Estoril Praia",
     "entityNote": "São entidades diferentes. A Estoril Praia SAD gere a equipa principal (Primeira Liga) e a equipa Sub-23 — é a ela que se referem a classificação, os jogos, o plantel, as notícias e as estatísticas neste site. O Grupo Desportivo Estoril Praia é o clube-mãe, responsável pelas camadas jovens e outras modalidades — é referido apenas na página \"História\", sobre a fundação do clube em 1939. A API football-data.org devolve \"GD Estoril Praia\" como nome da equipa por ser o nome popular do clube; este site corrige a apresentação para \"Estoril Praia SAD\" nos contextos em que essa é a entidade correta, sem alterar os dados sincronizados.",
     "sourcesTitle": "Fontes de Dados",
@@ -301,16 +282,15 @@
       "news": "Notícias do clube — inserção manual periódica, sobretudo a partir do site oficial do Estoril Praia, complementada por imprensa desportiva (Record, A Bola, O Jogo, ZeroZero) quando relevante.",
       "marketValues": "Valores de mercado — carregamento manual pontual a partir do ZeroZero.pt (Sofascore e FBref foram consideradas primeiro, mas o Sofascore carrega os valores via JavaScript e o FBref não publica valores de mercado; nunca Transfermarkt, por questões de termos de uso). Só 14 dos 23 jogadores têm valor disponível na fonte.",
       "playerStats": "Golos e assistências da época 2025/26 (para o gráfico de marcadores e o comparador) — dataset manual, cruzado entre ESPN, Soccerway e FootyStats (o FBref, fonte preferida pelo spec, bloqueia acesso automático). Só 8 dos 23 jogadores têm estatística confirmada.",
-      "physical": "Desempenho físico (distância, sprints, velocidade máxima, frequência cardíaca, índice de fadiga) na página do Plantel — 100% simulado por um gerador próprio (src/lib/simulated/wearables.ts), nunca dados reais. A football-data.org não fornece dados de GPS ou wearables em nenhum plano.",
-      "alerts": "Alertas na página inicial: jogos importantes (contra FC Porto, Benfica ou Sporting, ou nos próximos 7 dias) usam dados 100% reais já sincronizados; os alertas de cartões amarelos e vermelhos são 100% simulados (src/lib/simulated/cards.ts), porque a football-data.org não fornece dados de cartões no plano gratuito.",
+      "alerts": "Alertas na página inicial: jogos importantes (contra FC Porto, Benfica ou Sporting, ou nos próximos 7 dias) usam dados 100% reais já sincronizados. Não existem secções de dados simulados neste projeto — qualquer funcionalidade sem fonte real e gratuita disponível (ex: cartões, GPS/fadiga, xG, heatmap tático) foi deixada de fora em vez de ser inventada.",
       "finance": "Finanças — dados reais agregados dos 5 Relatórios e Contas anuais da Estoril Praia SAD (épocas 2020/21 a 2024/25), publicados publicamente no site oficial do clube e inseridos manualmente. Ver a página \"Finanças\" para o detalhe e a fonte de cada época."
     },
     "updateFrequencyTitle": "Frequência de Atualização",
     "updateFrequency": "Os dados de classificação, resultados e calendário são sincronizados por uma tarefa agendada (Vercel Cron Job) que corre uma vez por dia e grava os resultados na base de dados própria. O site nunca chama a API externa diretamente a cada visita, para respeitar os limites do plano gratuito. O plantel, o histórico e as notícias são inseridos manualmente e atualizados de forma pontual.",
     "limitationsTitle": "Limitações Conhecidas",
     "limitations": "O plano gratuito da football-data.org tem limites de pedidos por minuto, não inclui o plantel completo para a Liga Portugal (por isso o plantel é inserido manualmente), e pode não incluir todos os eventos de jogo (golos, cartões, substituições) para todas as competições. Durante o período entre épocas, a API devolve a classificação final da época anterior junto com informação da época seguinte — o site deteta isto e etiqueta a classificação com a época a que os dados realmente pertencem (por exemplo, \"2025/26\"), para não sugerir que é uma classificação da época seguinte. A idade dos jogadores é aproximada (baseada apenas na idade indicada pelo ZeroZero.pt, sem data de nascimento exata, com desvio possível de até um ano). Nem todos os jogadores têm valor de mercado disponível na fonte. Alguns dados históricos ou financeiros só são atualizados manualmente e de forma pontual.",
-    "simulatedDataTitle": "Dados Simulados",
-    "simulatedData": "Qualquer métrica avançada gerada artificialmente (ex: fadiga, GPS, wearables) é claramente assinalada com um aviso \"Dados simulados\" na interface e nunca é apresentada como dado real."
+    "simulatedDataTitle": "Política de Dados Reais",
+    "simulatedData": "Este projeto não apresenta dados inventados em nenhuma circunstância. Já foram construídas e depois removidas duas secções experimentais (desempenho físico simulado e alertas de cartões amarelos/vermelhos) precisamente por não haver fonte real e gratuita para as sustentar. Quando uma funcionalidade da especificação original não tem uma fonte real e gratuita disponível (ex: xG, heatmap tático), fica de fora do projeto em vez de ser simulada."
   },
   "footer": {
     "developedBy": "Desenvolvido por",

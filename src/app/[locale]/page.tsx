@@ -12,7 +12,6 @@ import { getEstorilTeam, getSquadStats } from "@/lib/data/team";
 import { getTeamCrestUrl, getTeamDisplayName } from "@/lib/estoril";
 import { getPlayersWithSeasonStats } from "@/lib/data/player-stats";
 import { getNewsPosts } from "@/lib/data/news";
-import { getSimulatedCardAlerts } from "@/lib/data/simulated-metrics";
 import { StandingsTable } from "@/components/home/StandingsTable";
 import { MatchCard } from "@/components/home/MatchCard";
 import { Countdown } from "@/components/home/Countdown";
@@ -40,7 +39,6 @@ type HomeData = {
   squadStats: Awaited<ReturnType<typeof getSquadStats>>;
   newsPosts: Awaited<ReturnType<typeof getNewsPosts>>;
   importantMatches: Awaited<ReturnType<typeof getImportantUpcomingMatches>>;
-  cardAlerts: Awaited<ReturnType<typeof getSimulatedCardAlerts>>;
 };
 
 async function loadHomeData(): Promise<HomeData | null> {
@@ -56,7 +54,6 @@ async function loadHomeData(): Promise<HomeData | null> {
       squadStats,
       newsPosts,
       importantMatches,
-      cardAlerts,
     ] = await Promise.all([
       getCurrentStandings(),
       getRecentResults(),
@@ -67,7 +64,6 @@ async function loadHomeData(): Promise<HomeData | null> {
       getSquadStats(),
       getNewsPosts(3),
       getImportantUpcomingMatches(),
-      getSimulatedCardAlerts(),
     ]);
     const pointsEvolution = team && standings.season ? await getPointsEvolution(team.id, standings.season) : [];
 
@@ -83,7 +79,6 @@ async function loadHomeData(): Promise<HomeData | null> {
       squadStats,
       newsPosts,
       importantMatches,
-      cardAlerts,
     };
   } catch (error) {
     console.error("[home] failed to load dashboard data", error);
@@ -151,9 +146,9 @@ export default async function Home({ params }: PageProps) {
         <div className="card p-6 text-sm text-[var(--muted)]">{t("noData")}</div>
       ) : (
         <div className="flex flex-col gap-6">
-          {data.importantMatches.length > 0 || data.cardAlerts.length > 0 ? (
+          {data.importantMatches.length > 0 ? (
             <div style={stagger(1)} className="animate-in">
-              <AlertsCard importantMatches={data.importantMatches} cardAlerts={data.cardAlerts} locale={locale} />
+              <AlertsCard importantMatches={data.importantMatches} locale={locale} />
             </div>
           ) : null}
 

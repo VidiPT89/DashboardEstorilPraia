@@ -62,9 +62,8 @@ model Player {
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 
-  team            Team              @relation(fields: [teamId], references: [id], onDelete: Cascade)
-  marketValues    MarketValue[]
-  simulatedMetrics SimulatedMetric[]
+  team         Team          @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  marketValues MarketValue[]
 
   @@index([teamId])
   @@map("players")
@@ -86,10 +85,9 @@ model Match {
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
-  competition      Competition       @relation(fields: [competitionId], references: [id])
-  homeTeam         Team              @relation("HomeTeam", fields: [homeTeamId], references: [id])
-  awayTeam         Team              @relation("AwayTeam", fields: [awayTeamId], references: [id])
-  simulatedMetrics SimulatedMetric[]
+  competition Competition @relation(fields: [competitionId], references: [id])
+  homeTeam    Team        @relation("HomeTeam", fields: [homeTeamId], references: [id])
+  awayTeam    Team        @relation("AwayTeam", fields: [awayTeamId], references: [id])
 
   @@index([competitionId])
   @@index([homeTeamId])
@@ -152,7 +150,7 @@ model MarketValue {
 }
 
 // ---------------------------------------------------------------------------
-// Fase 3 — avançado / simulado
+// Fase 3 — avançado
 // ---------------------------------------------------------------------------
 
 model FinanceSnapshot {
@@ -177,21 +175,4 @@ model StaffUser {
   updatedAt    DateTime @updatedAt
 
   @@map("staff_users")
-}
-
-model SimulatedMetric {
-  id          String   @id @default(cuid())
-  type        String // fatigue | gps | wearable
-  playerId    String?
-  matchId     String?
-  value       Json
-  isSimulated Boolean  @default(true)
-  createdAt   DateTime @default(now())
-
-  player Player? @relation(fields: [playerId], references: [id], onDelete: Cascade)
-  match  Match?  @relation(fields: [matchId], references: [id], onDelete: Cascade)
-
-  @@index([playerId])
-  @@index([matchId])
-  @@map("simulated_metrics")
 }
