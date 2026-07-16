@@ -24,6 +24,7 @@ import { TeamCrest } from "@/components/ui/TeamCrest";
 import { ClubFactsCard } from "@/components/home/ClubFactsCard";
 import { NewsPreview } from "@/components/home/NewsPreview";
 import { AlertsCard } from "@/components/home/AlertsCard";
+import { TopScorerSpotlight } from "@/components/home/TopScorerSpotlight";
 
 export const dynamic = "force-dynamic";
 
@@ -174,11 +175,16 @@ export default async function Home({ params }: PageProps) {
               <div style={stagger(4)} className="animate-in">
                 <NewsPreview posts={data.newsPosts} locale={locale} />
               </div>
+              {data.topScorers.length > 0 ? (
+                <div style={stagger(5)} className="animate-in">
+                  <TopScorerSpotlight players={data.topScorers} />
+                </div>
+              ) : null}
             </div>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            <div style={stagger(5)} className="animate-in card overflow-hidden">
+            <div style={stagger(6)} className="animate-in card overflow-hidden">
               <h2 className="section-title border-b border-[var(--border)] px-5 py-4 text-base font-semibold">
                 {t("recentResultsTitle")}
               </h2>
@@ -193,7 +199,7 @@ export default async function Home({ params }: PageProps) {
               )}
             </div>
 
-            <div style={stagger(6)} className="animate-in card overflow-hidden">
+            <div style={stagger(7)} className="animate-in card overflow-hidden">
               <h2 className="section-title border-b border-[var(--border)] px-5 py-4 text-base font-semibold">
                 {t("upcomingMatchesTitle")}
               </h2>
@@ -206,20 +212,20 @@ export default async function Home({ params }: PageProps) {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            <div style={stagger(7)} className="animate-in">
+            <div style={stagger(8)} className="animate-in">
               <PointsEvolutionChart data={data.pointsEvolution} />
             </div>
-            <div style={stagger(8)} className="animate-in">
+            <div style={stagger(9)} className="animate-in">
               <GoalsChart data={data.goalsPerMatchday} />
             </div>
             <div
-              style={stagger(9)}
+              style={stagger(10)}
               className={`animate-in ${data.topScorers.length === 0 ? "md:col-span-2" : ""}`}
             >
               <HomeAwayChart data={data.homeAwaySplit} />
             </div>
             {data.topScorers.length > 0 ? (
-              <div style={stagger(10)} className="animate-in">
+              <div style={stagger(11)} className="animate-in">
                 <TopScorersChart players={data.topScorers} />
               </div>
             ) : null}

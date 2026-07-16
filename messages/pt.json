@@ -34,6 +34,11 @@
     "newsTitle": "Notícias",
     "newsSeeAll": "Ver todas →",
     "newsEmpty": "Ainda não há notícias inseridas.",
+    "topScorerSpotlight": {
+      "title": "Melhor Marcador",
+      "goalsShort": "G",
+      "assistsShort": "A"
+    },
     "clubFacts": {
       "title": "Sobre o Clube",
       "founded": "Fundado em",

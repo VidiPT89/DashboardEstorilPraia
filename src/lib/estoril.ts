@@ -24,7 +24,7 @@ export function getTeamDisplayName(team: { externalId: number; name: string }): 
 // the display-only crest URL without touching the synced data, since the
 // next cron sync would otherwise overwrite it with the same wrong image.
 const CREST_URL_OVERRIDES: Record<number, string> = {
-  7822: "https://alvercasad.pt/wp-content/uploads/2025/08/ALVERCA_LogoSite.png", // FC Alverca — football-data.org serves an unrelated bull-head crest
+  7822: "https://alvercasad.pt/wp-content/uploads/2025/07/cropped-FC_Site-1-180x180.png", // FC Alverca — football-data.org serves an unrelated bull-head crest
   6618: "https://casapiaac.pt/images/105anos/logo2-dark.png", // Casa Pia AC — football-data.org serves the club's pre-rebrand crest
 };
 
