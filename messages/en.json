@@ -80,7 +80,13 @@
       "matchesTitle": "Important Matches",
       "bigMatchReason": "Big match",
       "soonReason": "This week",
-      "noMatches": "No important matches in the coming days."
+      "noMatches": "No important matches in the coming days.",
+      "cardsTitle": "Yellow & Red Cards",
+      "atRisk": "one card away from suspension",
+      "suspended": "suspended for the next match (simulated)",
+      "redCard": "1 red card this season",
+      "redCards": "{count} red cards this season",
+      "noCards": "No simulated player is close to suspension or has a red card."
     }
   },
   "squad": {
@@ -296,7 +302,7 @@
       "marketValues": "Market values — occasional manual entry from ZeroZero.pt (Sofascore and FBref were considered first, but Sofascore loads values via JavaScript and FBref doesn't publish market values; never Transfermarkt, due to its terms of use). Only 14 of 23 players have a value available in the source.",
       "playerStats": "Goals and assists for the 2025/26 season (for the top scorers chart and the comparator) — manual dataset, cross-checked across ESPN, Soccerway and FootyStats (FBref, the spec's preferred source, blocks automated access). Only 8 of 23 players have a confirmed stat.",
       "physical": "Physical performance (distance, sprints, top speed, heart rate, fatigue index) on the Squad page — 100% simulated by an in-house generator (src/lib/simulated/wearables.ts), never real data. football-data.org doesn't provide GPS or wearable data on any plan.",
-      "alerts": "Homepage alerts: important matches (against FC Porto, Benfica or Sporting, or within the next 7 days) use 100% real, already-synced data.",
+      "alerts": "Homepage alerts: important matches (against FC Porto, Benfica or Sporting, or within the next 7 days) use 100% real, already-synced data; yellow and red card alerts are 100% simulated (src/lib/simulated/cards.ts), since football-data.org doesn't provide card data on the free tier.",
       "finance": "Finance — real data aggregated from Estoril Praia SAD's 5 annual Reports and Accounts (2020/21 to 2024/25 seasons), publicly published on the club's official website and entered manually. See the \"Finance\" page for the detail and source of each season."
     },
     "updateFrequencyTitle": "Update Frequency",
