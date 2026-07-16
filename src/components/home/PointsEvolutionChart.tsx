@@ -21,7 +21,7 @@ export function PointsEvolutionChart({ data }: PointsEvolutionChartProps) {
   return (
     <div className="card card-interactive p-5">
       <h2 className="section-title mb-4 text-base font-semibold">{t("pointsEvolutionTitle")}</h2>
-      <ResponsiveContainer width="100%" height={260}>
+      <ResponsiveContainer width="100%" height={280}>
         <LineChart data={data} margin={{ top: 8, right: 16, left: -16, bottom: 0 }}>
           <CartesianGrid stroke="var(--chart-grid)" strokeDasharray="0" vertical={false} />
           <XAxis
