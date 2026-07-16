@@ -192,7 +192,7 @@ export default async function Home({ params }: PageProps) {
               </div>
             </div>
 
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 lg:sticky lg:top-24 lg:self-start">
               {data.team ? (
                 <div style={stagger(3)} className="animate-in">
                   <ClubFactsCard
